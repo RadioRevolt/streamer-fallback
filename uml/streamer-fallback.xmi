@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI verified="false" xmi.version="1.2" timestamp="2016-12-23T15:13:05" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
+<XMI verified="false" xmi.version="1.2" timestamp="2016-12-23T16:49:08" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
@@ -45,175 +45,182 @@
         <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="zxDL7bqSEBeN" name="set"/>
        </UML:Namespace.ownedElement>
       </UML:Package>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="bH8T4frNjBJO" name="IceCast2"/>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="t6n5wyFVFLyI" name="LiquidSoap"/>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="dEKFeH5WLsbH" name="streamer-fallback"/>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="spOdtwYWAqjn" name="IceCast2 configuration"/>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="AlphgbCXQaAH" name="LiquidSoap configuration"/>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WgMA7nuHYjyC" name="Listener"/>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GEaXtZSNGmYN" name="Technician"/>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="NAWpxh3tj9Sv" name="core">
-       <UML:Classifier.feature>
-        <UML:Attribute visibility="private" isSpecification="false" xmi.id="WaPSz3FOF37d" type="ioOY0wIqWwRH" comment="What to do in case of downtime. The options are technical problems-jingle, nightmusic or transparent (that is, play reruns of whatever was supposed to be playing. When a rerun is scheduled and there is downtime, the listener might not even notice.)" name="current_status"/>
-        <UML:Attribute visibility="private" isSpecification="false" xmi.id="rZtgf4PtD8LA" type="R3mptdyUyMiT" comment="The current situation of the downtime. Determines whether to acknowledge the downtime or not, and whether to call the downtime planned or not." name="current_situation"/>
-        <UML:Attribute visibility="private" isSpecification="false" xmi.id="badmjzutR0xT" comment="File pointer to the LiquidSoap configuration file (or something along those lines…)" name="ls_config_fp"/>
-        <UML:Attribute visibility="private" isSpecification="false" xmi.id="0swxs4Un690A" type="kagvPyRWnTT2" comment="True if technical problems should be played during live shows (that is, shows without (R) in the title and nothing planned in the rerunner), false if live shows should be treated as reruns (thus playing reruns if streamer goes down during the show). This affects what the listener hears if streamer goes down while the live show is on air." name="live_shows"/>
-        <UML:Attribute visibility="private" isSpecification="false" xmi.id="Z82NpV8nN3kF" type="HJWkeOkEp1og" comment="Shows with this name in the schedule are assumed to consist of night music (that is, music from a set local directory populated by some other, seperate program). Thus, even if the status is &quot;reruns&quot;, night music is played in that spot." initialValue="Nattmusikk" name="nightmusic_show_name"/>
-        <UML:Attribute visibility="private" isSpecification="false" xmi.id="7E2BM0LUgEwX" type="Ma82NIQvQRID" comment="List of schedules, one per day. Usually, a couple days of schedules are downloaded in advance, so that when looking at which files to remove locally, we do not remove a file we will need soon again anyways." name="schedule"/>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WtqF28eiGIEx" comment="Restart LiquidSoap, to apply any changes to the LiquidSoap configuration file." name="restart">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="UcmkvVkC7asg" type="kagvPyRWnTT2"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="ptUwNigyGJjz" type="HJWkeOkEp1og" value="0" comment="When to restart LiquidSoap (works like the time argument to shutdown)" name="time"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Gdsibn97f0Kh" comment="Query for the current status of streamer-fallback.&#xa;&#xa;Outputs the current status in JSON format." name="status">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="M1o1z8i736UF" type="HJWkeOkEp1og"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8wPMCbJ2Sowq" comment="Make any necessary changes to the LiquidSoap configuration file to prepare for a new day.&#xa;&#xa;This also includes downloading the schedule, downloading scheduled reruns and such. Reruns are downloaded even if reruns are not to be played according to status; this is done so that we are not screwed if we later change status to reruns, after systems have gone down.&#xa;&#xa;To be run daily after midnight from a cron job." name="prepare_day">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="aMFGCew6kg3w" type="kagvPyRWnTT2"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="hlFAZB03nmmh" comment="Change the status and/or situation of streamer-fallback.&#xa;&#xa;The user can drop any parameters. Dropped parameters are not touched." name="change">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="tFoqfpNHrveb" type="kagvPyRWnTT2"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="GWrL4h1OgpPg" type="R3mptdyUyMiT" value="" comment="New situation to be applied" name="new_situation"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="w8lzCDCtzS3W" type="ioOY0wIqWwRH" value="" comment="New status to apply." name="new_status"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="75VWWnhSDgjf" type="kagvPyRWnTT2" value="" comment="See the live_shows property" name="live_shows_present"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="NFEImyaK2IXL" type="HJWkeOkEp1og" value="" comment="See the nightmusic_show_name property." name="nightmusic_show_name"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="b1YPmK40otLq" comment="Prepare for several days of downtime.&#xa;&#xa;Usually, the system can tackle multiple hours of downtime (since prepare_day is run daily, and downloads everything that is needed for the next 24 hours). However, using this operation, you can tell core to prepare for multiple days of downtime in advance. By doing so, all reruns scheduled to be run in the given days are downloaded now.&#xa;&#xa;Note that downtime here means downtime for the server which hosts the reruns as well as the API for the schedule, not streamer. streamer can be down all it wants as long as the file server and schedule server is up, since reruns can still be retrieved daily. This is only necessary for the situations where streamer _and_ the file server with the reruns _and_ the server which hosts the schedule API are going to be down for an extended period of time (that means longer than this day).&#xa;&#xa;If the storage required is greater than the storage available, the program ends with error code 2. If the schedule is incomplete, the program ends with error code 3." name="prepare_downtime">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="8fvRr9gdgn9O" type="RXITuOvJBpKW"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="jIYRyZMrnAiS" type="Dgb1Zwr9I6NS" value="today" comment="Start date for scheduled downtime" name="start_date"/>
-          <UML:Parameter visibility="private" isSpecification="false" xmi.id="lY6YimzgpgUl" type="Dgb1Zwr9I6NS" value="one week in advance" comment="Last day for the scheduled downtime." name="end_date"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="wQyJTjWbvZkH" comment="To be run in parallell to another operation, and returns information on how long the progress has come. Can be implemented as a signal handler that prints to stderr (so you invoke this on the process)." name="give_progress">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="Z4kDIejeErgc" type="HJWkeOkEp1og"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-       </UML:Classifier.feature>
-      </UML:Class>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="RDqjQhilpCYk" comment="The program that the technicians interact with directly." name="cli">
-       <UML:Classifier.feature>
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="wGxA6ekDhFhD" comment="Start and run the CLI. The user makes choices and can see the current status by navigating the menus." name="run">
-         <UML:BehavioralFeature.parameter>
-          <UML:Parameter kind="return" xmi.id="2PdE5MrSb5iM" type="kagvPyRWnTT2"/>
-         </UML:BehavioralFeature.parameter>
-        </UML:Operation>
-       </UML:Classifier.feature>
-      </UML:Class>
-      <UML:Enumeration stereotype="enum" visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ioOY0wIqWwRH" name="statuses">
-       <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="ioOY0wIqWwRH" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="kqpGkEVi9JmB" value="1" name="technical problems-jingle"/>
-       <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="ioOY0wIqWwRH" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8FE72k7mZw0H" value="2" name="nightmusic"/>
-       <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="ioOY0wIqWwRH" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="vI6sEu6M9JU9" value="3" name="reruns"/>
-      </UML:Enumeration>
-      <UML:Enumeration stereotype="enum" visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="R3mptdyUyMiT" name="situation">
-       <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="R3mptdyUyMiT" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WYTSuBw4EpKh" value="1" name="planned downtime"/>
-       <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="R3mptdyUyMiT" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ZOjgGJfkp6Dj" value="2" name="unplanned downtime"/>
-       <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="R3mptdyUyMiT" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="LBEuiUrHsav9" value="3" name="hide downtime"/>
-      </UML:Enumeration>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Dgb1Zwr9I6NS" name="datetime"/>
-      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Ma82NIQvQRID" name="Schedule"/>
       <UML:Association visibility="public" isSpecification="false" namespace="Logical View" xmi.id="1Gg4YDNUSIdY" name="">
        <UML:Association.connection>
         <UML:AssociationEnd changeability="changeable" visibility="public" isNavigable="true" isSpecification="false" xmi.id="wNjdbRoboPnr" type="RDqjQhilpCYk" name="" aggregation="aggregate"/>
         <UML:AssociationEnd changeability="changeable" visibility="public" isNavigable="true" isSpecification="false" xmi.id="leHLhzfjGLlo" type="NAWpxh3tj9Sv" name="" aggregation="none"/>
        </UML:Association.connection>
       </UML:Association>
+      <UML:Package stereotype="folder" visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="0Fa8YrMmUD1i" name="core">
+       <UML:Namespace.ownedElement/>
+      </UML:Package>
+      <UML:Package stereotype="folder" visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="x5KBOp4yb0b4" name="cli">
+       <UML:Namespace.ownedElement/>
+      </UML:Package>
+      <UML:Package stereotype="folder" visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ZFIAJN8HdhP9" name="overview">
+       <UML:Namespace.ownedElement>
+        <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WgMA7nuHYjyC" name="Listener">
+         <UML:Namespace.ownedElement>
+          <UML:Class visibility="public" isSpecification="false" namespace="WgMA7nuHYjyC" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="AlphgbCXQaAH" name="LiquidSoap configuration"/>
+         </UML:Namespace.ownedElement>
+        </UML:Class>
+        <UML:Enumeration stereotype="enum" visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="R3mptdyUyMiT" name="situation">
+         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="R3mptdyUyMiT" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WYTSuBw4EpKh" value="1" name="planned downtime"/>
+         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="R3mptdyUyMiT" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ZOjgGJfkp6Dj" value="2" name="unplanned downtime"/>
+         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="R3mptdyUyMiT" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="LBEuiUrHsav9" value="3" name="hide downtime"/>
+        </UML:Enumeration>
+        <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Ma82NIQvQRID" name="Schedule"/>
+        <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Dgb1Zwr9I6NS" name="datetime"/>
+        <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="bH8T4frNjBJO" name="IceCast2"/>
+        <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="t6n5wyFVFLyI" name="LiquidSoap"/>
+        <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="spOdtwYWAqjn" name="IceCast2 configuration"/>
+        <UML:Enumeration stereotype="enum" visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ioOY0wIqWwRH" name="statuses">
+         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="ioOY0wIqWwRH" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="kqpGkEVi9JmB" value="1" name="technical problems-jingle"/>
+         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="ioOY0wIqWwRH" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8FE72k7mZw0H" value="2" name="nightmusic"/>
+         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="ioOY0wIqWwRH" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="vI6sEu6M9JU9" value="3" name="reruns"/>
+        </UML:Enumeration>
+        <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="dEKFeH5WLsbH" name="streamer-fallback"/>
+        <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GEaXtZSNGmYN" name="Technician"/>
+        <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="NAWpxh3tj9Sv" name="core">
+         <UML:Classifier.feature>
+          <UML:Attribute visibility="private" isSpecification="false" xmi.id="WaPSz3FOF37d" type="ioOY0wIqWwRH" comment="What to do in case of downtime. The options are technical problems-jingle, nightmusic or transparent (that is, play reruns of whatever was supposed to be playing. When a rerun is scheduled and there is downtime, the listener might not even notice.)" name="current_status"/>
+          <UML:Attribute visibility="private" isSpecification="false" xmi.id="rZtgf4PtD8LA" type="R3mptdyUyMiT" comment="The current situation of the downtime. Determines whether to acknowledge the downtime or not, and whether to call the downtime planned or not." name="current_situation"/>
+          <UML:Attribute visibility="private" isSpecification="false" xmi.id="badmjzutR0xT" comment="File pointer to the LiquidSoap configuration file (or something along those lines…)" name="ls_config_fp"/>
+          <UML:Attribute visibility="private" isSpecification="false" xmi.id="0swxs4Un690A" type="kagvPyRWnTT2" comment="True if technical problems should be played during live shows (that is, shows without (R) in the title and nothing planned in the rerunner), false if live shows should be treated as reruns (thus playing reruns if streamer goes down during the show). This affects what the listener hears if streamer goes down while the live show is on air." name="live_shows"/>
+          <UML:Attribute visibility="private" isSpecification="false" xmi.id="Z82NpV8nN3kF" type="HJWkeOkEp1og" comment="Shows with this name in the schedule are assumed to consist of night music (that is, music from a set local directory populated by some other, seperate program). Thus, even if the status is &quot;reruns&quot;, night music is played in that spot." initialValue="Nattmusikk" name="nightmusic_show_name"/>
+          <UML:Attribute visibility="private" isSpecification="false" xmi.id="7E2BM0LUgEwX" type="Ma82NIQvQRID" comment="List of schedules, one per day. Usually, a couple days of schedules are downloaded in advance, so that when looking at which files to remove locally, we do not remove a file we will need soon again anyways." name="schedule"/>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WtqF28eiGIEx" comment="Restart LiquidSoap, to apply any changes to the LiquidSoap configuration file." name="restart">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter kind="return" xmi.id="UcmkvVkC7asg" type="kagvPyRWnTT2"/>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="ptUwNigyGJjz" type="HJWkeOkEp1og" value="0" comment="When to restart LiquidSoap (works like the time argument to shutdown)" name="time"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Gdsibn97f0Kh" comment="Query for the current status of streamer-fallback.&#xa;&#xa;Outputs the current status in JSON format." name="status">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter kind="return" xmi.id="M1o1z8i736UF" type="HJWkeOkEp1og"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8wPMCbJ2Sowq" comment="Make any necessary changes to the LiquidSoap configuration file to prepare for a new day.&#xa;&#xa;This also includes downloading the schedule, downloading scheduled reruns and such. Reruns are downloaded even if reruns are not to be played according to status; this is done so that we are not screwed if we later change status to reruns, after systems have gone down.&#xa;&#xa;To be run daily after midnight from a cron job." name="prepare_day">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter kind="return" xmi.id="aMFGCew6kg3w" type="kagvPyRWnTT2"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="hlFAZB03nmmh" comment="Change the status and/or situation of streamer-fallback.&#xa;&#xa;The user can drop any parameters. Dropped parameters are not touched." name="change">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter kind="return" xmi.id="tFoqfpNHrveb" type="kagvPyRWnTT2"/>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="GWrL4h1OgpPg" type="R3mptdyUyMiT" value="" comment="New situation to be applied" name="new_situation"/>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="w8lzCDCtzS3W" type="ioOY0wIqWwRH" value="" comment="New status to apply." name="new_status"/>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="75VWWnhSDgjf" type="kagvPyRWnTT2" value="" comment="See the live_shows property" name="live_shows_present"/>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="NFEImyaK2IXL" type="HJWkeOkEp1og" value="" comment="See the nightmusic_show_name property." name="nightmusic_show_name"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="b1YPmK40otLq" comment="Prepare for several days of downtime.&#xa;&#xa;Usually, the system can tackle multiple hours of downtime (since prepare_day is run daily, and downloads everything that is needed for the next 24 hours). However, using this operation, you can tell core to prepare for multiple days of downtime in advance. By doing so, all reruns scheduled to be run in the given days are downloaded now.&#xa;&#xa;Note that downtime here means downtime for the server which hosts the reruns as well as the API for the schedule, not streamer. streamer can be down all it wants as long as the file server and schedule server is up, since reruns can still be retrieved daily. This is only necessary for the situations where streamer _and_ the file server with the reruns _and_ the server which hosts the schedule API are going to be down for an extended period of time (that means longer than this day).&#xa;&#xa;If the storage required is greater than the storage available, the program ends with error code 2. If the schedule is incomplete, the program ends with error code 3." name="prepare_downtime">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter kind="return" xmi.id="8fvRr9gdgn9O" type="RXITuOvJBpKW"/>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="jIYRyZMrnAiS" type="Dgb1Zwr9I6NS" value="today" comment="Start date for scheduled downtime" name="start_date"/>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="lY6YimzgpgUl" type="Dgb1Zwr9I6NS" value="one week in advance" comment="Last day for the scheduled downtime." name="end_date"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="wQyJTjWbvZkH" comment="To be run in parallell to another operation, and returns information on how long the progress has come. Can be implemented as a signal handler that prints to stderr (so you invoke this on the process)." name="give_progress">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter kind="return" xmi.id="Z4kDIejeErgc" type="HJWkeOkEp1og"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+         </UML:Classifier.feature>
+        </UML:Class>
+        <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="RDqjQhilpCYk" comment="The program that the technicians interact with directly." name="cli">
+         <UML:Classifier.feature>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="wGxA6ekDhFhD" comment="Start and run the CLI. The user makes choices and can see the current status by navigating the menus." name="run">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter kind="return" xmi.id="2PdE5MrSb5iM" type="kagvPyRWnTT2"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+         </UML:Classifier.feature>
+        </UML:Class>
+       </UML:Namespace.ownedElement>
+       <XMI.extension xmi.extender="umbrello">
+        <diagrams>
+         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="Preparing for downtime, sequence diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="395" canvaswidth="855" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" autoincrementsequence="1" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="6LyKUai8xh3L" documentation="" showscope="1" snapgrid="0" showatts="1" type="3">
+          <widgets>
+           <objectwidget linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="237" decon="0" showstereotype="1" y="80" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="3QhHr5C4zQ9D" width="51" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="NAWpxh3tj9Sv" height="28" drawasactor="0"/>
+           <objectwidget linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="-296" decon="0" showstereotype="1" y="80" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="sTOIytm4EiPg" width="64" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="RDqjQhilpCYk" height="28" drawasactor="0"/>
+           <notewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="312" showstereotype="1" y="101" text="Returns the current status back to cli" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="B9GNv9YrcQYk" width="134" isinstance="0" noteType="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="XnmlkHde49VF" height="52"/>
+           <notewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="320" showstereotype="1" y="276" text="prepare_downtime takes some time, and meanwhile cli can get progress information by sending SIGHUP to core. Progress info is then sent over stderr." font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="H8HtYpd6dPpN" width="239" isinstance="0" noteType="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="eTzjaSwudwNj" height="99"/>
+          </widgets>
+          <messages>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="EHgUThZjsg1U" operation="Gdsibn97f0Kh" linewidth="0" seqnum="1" textcolor="none" usesdiagramusefillcolor="1" x="-264" showstereotype="1" y="136" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="I5oFksYmGD37" width="534" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="Gdsibn97f0Kh" height="20" sequencemessagetype="1000">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-256" showstereotype="1" y="117" text="status() : string" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="jWkvE9bUCOju" pretext="" role="704" width="125" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="EHgUThZjsg1U" height="19"/>
+           </messagewidget>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="VbiefZyo1n9s" operation="change(status = reruns, situation = do not acknowledge)" linewidth="0" seqnum="2" textcolor="none" usesdiagramusefillcolor="1" x="-264" showstereotype="1" y="187" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="xTveJdK094tL" width="534" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="BSpLqYF4owWF" height="20" sequencemessagetype="1000">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-259" showstereotype="1" y="168" text="change(status = reruns, situation = do not acknowledge)" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="b3yUkyyfRrJi" pretext="" role="704" width="399" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="VbiefZyo1n9s" height="19"/>
+           </messagewidget>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="qmuJ3HTLbJzl" operation="prepare_downtime(start_date = tomorrow, end_date = Sunday)" linewidth="0" seqnum="3" textcolor="none" usesdiagramusefillcolor="1" x="-264" showstereotype="1" y="245" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="KPu6JRLuUJOC" width="534" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="HKpgC7Ohi4JM" height="101" sequencemessagetype="1000">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-259" showstereotype="1" y="226" text="prepare_downtime(start_date = tomorrow, end_date = Sunday)" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="dFAf3KVLhPR0" pretext="" role="704" width="441" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="qmuJ3HTLbJzl" height="19"/>
+           </messagewidget>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="FQhC3OBwcUYD" operation="SIGHUP (send progress information)" linewidth="0" seqnum="4" textcolor="none" usesdiagramusefillcolor="1" x="-263" showstereotype="1" y="278" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="QOQ8SkS4xdj0" width="524" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="vEJcdkcSUUjY" height="8" sequencemessagetype="1001">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-258" showstereotype="1" y="259" text="SIGHUP (send progress information)" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="lCrLTq6rCXyd" pretext="" role="704" width="260" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="FQhC3OBwcUYD" height="19"/>
+           </messagewidget>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="sTOIytm4EiPg" textid="TMjyMMwB6kBL" operation="progress information" linewidth="0" seqnum="5" textcolor="none" usesdiagramusefillcolor="1" x="-263" showstereotype="1" y="304" widgetaid="3QhHr5C4zQ9D" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="D8dfbMBKX0fy" width="524" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="rkq1HmeUCLgE" height="8" sequencemessagetype="1001">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="82" showstereotype="1" y="285" text="progress information" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="jpAJIhVVn8AO" pretext="" role="704" width="161" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="TMjyMMwB6kBL" height="19"/>
+           </messagewidget>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="tpYtDAimBvNP" operation="Gdsibn97f0Kh" linewidth="0" seqnum="6" textcolor="none" usesdiagramusefillcolor="1" x="-264" showstereotype="1" y="380" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="u6kTiuKe1Ner" width="534" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="Gdsibn97f0Kh" height="20" sequencemessagetype="1000">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-252" showstereotype="1" y="361" text="status() : string" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="vTtjA7F4EzVu" pretext="" role="704" width="125" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="tpYtDAimBvNP" height="19"/>
+           </messagewidget>
+          </messages>
+          <associations>
+           <assocwidget roleBdoc="" linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="Gdsibn97f0Kh" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="1" totalcounta="2" totalcountb="2" roleAdoc="" widgetaid="XnmlkHde49VF" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="513">
+            <linepath layout="Polyline">
+             <startpoint startx="312" starty="146"/>
+             <endpoint endx="270" endy="146"/>
+            </linepath>
+           </assocwidget>
+           <assocwidget roleBdoc="" linecolor="#ff0000" indexa="1" usesdiagramfillcolor="1" widgetbid="vEJcdkcSUUjY" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="1" totalcounta="2" totalcountb="2" roleAdoc="" widgetaid="eTzjaSwudwNj" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="513">
+            <linepath layout="Polyline">
+             <startpoint startx="320" starty="282"/>
+             <endpoint endx="261" endy="282"/>
+            </linepath>
+           </assocwidget>
+          </associations>
+         </diagram>
+         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="Separation between core and cli" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="370" canvaswidth="1145" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="107" xmi.id="L4LyfjYfmJa4" documentation="We might want other interfaces than a command line interface in the future, like for example a web interface. Therefore, streamer-fallback is split into two parts: cli provides the command line interface, and core provides the actual functionality in a manner that is easy to use for a program. This diagram shows how the two interact with respect to functionality." showscope="1" snapgrid="0" showatts="1" type="1">
+          <widgets>
+           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-231" showattsigs="601" showstereotype="1" y="-22" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="q2hp3LCIyRgo" width="820" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="NAWpxh3tj9Sv" showscope="1" height="195" showopsigs="601"/>
+           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="696" showattsigs="601" showstereotype="1" y="-8" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="rbdbl4WZ6BO7" width="98" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="RDqjQhilpCYk" showscope="1" height="37" showopsigs="601"/>
+           <enumwidget width="201" showstereotype="1" x="-108" usesdiagramusefillcolor="0" y="-149" usesdiagramfillcolor="0" isinstance="0" localid="0vo44CBYkY1h" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="ioOY0wIqWwRH" showpackage="1" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <enumwidget width="175" showstereotype="1" x="-328" usesdiagramusefillcolor="0" y="-149" usesdiagramfillcolor="0" isinstance="0" localid="A4tFVBYpYCHB" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="R3mptdyUyMiT" showpackage="1" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <notewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="178" showstereotype="1" y="-158" text="This class diagram is not to be taken as a literal&#xa;class diagram. In this case, cli and core are two&#xa;different _programs_ that interact with another&#xa;by running commands and giving input and/or&#xa;output through stdin and stdout/stderr." font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="dP1vOOMNFTQv" width="356" isinstance="0" noteType="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="DwE6ETKBQXWV" height="95"/>
+          </widgets>
+          <messages/>
+          <associations>
+           <assocwidget linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="ioOY0wIqWwRH" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="NAWpxh3tj9Sv" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="1" visibilityB="1" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" xmi.id="WaPSz3FOF37d" changeabilityB="900" type="510">
+            <linepath layout="Polyline">
+             <startpoint startx="-51" starty="-22"/>
+             <endpoint endx="-51" endy="-74"/>
+            </linepath>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-155" showstereotype="1" y="-72" text="current_status" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="1ZwaTuscQqtA" pretext="-" role="710" width="106" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="aLQGXoMS7SIJ" height="19"/>
+           </assocwidget>
+           <assocwidget linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="R3mptdyUyMiT" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="NAWpxh3tj9Sv" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="1" visibilityB="1" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" xmi.id="rZtgf4PtD8LA" changeabilityB="900" type="510">
+            <linepath layout="Polyline">
+             <startpoint startx="-231" starty="-22"/>
+             <endpoint endx="-231" endy="-74"/>
+            </linepath>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-351" showstereotype="1" y="-72" text="current_situation" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="CS544YyPjBHP" pretext="-" role="710" width="123" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="f8gYiZfX8WDm" height="19"/>
+           </assocwidget>
+           <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="RDqjQhilpCYk" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="1Gg4YDNUSIdY" widgetbid="NAWpxh3tj9Sv" totalcountb="2" type="501" textcolor="none" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
+            <linepath layout="Polyline">
+             <startpoint startx="696" starty="9"/>
+             <endpoint endx="589" endy="9"/>
+            </linepath>
+           </assocwidget>
+          </associations>
+         </diagram>
+        </diagrams>
+       </XMI.extension>
+      </UML:Package>
      </UML:Namespace.ownedElement>
-     <XMI.extension xmi.extender="umbrello">
-      <diagrams>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="Separation between core and cli" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="331" canvaswidth="1192" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="86,95652173913044" xmi.id="L4LyfjYfmJa4" documentation="We might want other interfaces than a command line interface in the future, like for example a web interface. Therefore, streamer-fallback is split into two parts: cli provides the command line interface, and core provides the actual functionality in a manner that is easy to use for a program. This diagram shows how the two interact with respect to functionality." showscope="1" snapgrid="0" showatts="1" type="1">
-        <widgets>
-         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-231" showattsigs="601" showstereotype="1" y="-22" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="q2hp3LCIyRgo" width="820" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="NAWpxh3tj9Sv" showscope="1" height="195" showopsigs="601"/>
-         <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="696" showattsigs="601" showstereotype="1" y="-8" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="rbdbl4WZ6BO7" width="98" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="RDqjQhilpCYk" showscope="1" height="37" showopsigs="601"/>
-         <enumwidget width="201" showstereotype="1" x="-108" usesdiagramusefillcolor="0" y="-149" usesdiagramfillcolor="0" isinstance="0" localid="0vo44CBYkY1h" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="ioOY0wIqWwRH" showpackage="1" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <enumwidget width="175" showstereotype="1" x="-328" usesdiagramusefillcolor="0" y="-149" usesdiagramfillcolor="0" isinstance="0" localid="A4tFVBYpYCHB" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="R3mptdyUyMiT" showpackage="1" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <notewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="178" showstereotype="1" y="-158" text="This class diagram is not to be taken as a literal&#xa;class diagram. In this case, cli and core are two&#xa;different _programs_ that interact with another&#xa;by running commands and giving input and/or&#xa;output through stdin and stdout/stderr." font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="dP1vOOMNFTQv" width="356" isinstance="0" noteType="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="DwE6ETKBQXWV" height="95"/>
-        </widgets>
-        <messages/>
-        <associations>
-         <assocwidget linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="ioOY0wIqWwRH" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="NAWpxh3tj9Sv" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="1" visibilityB="1" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" xmi.id="WaPSz3FOF37d" changeabilityB="900" type="510">
-          <linepath layout="Polyline">
-           <startpoint startx="-51" starty="-22"/>
-           <endpoint endx="-51" endy="-74"/>
-          </linepath>
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-155" showstereotype="1" y="-72" text="current_status" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="1ZwaTuscQqtA" pretext="-" role="710" width="106" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="aLQGXoMS7SIJ" height="19"/>
-         </assocwidget>
-         <assocwidget linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="R3mptdyUyMiT" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="NAWpxh3tj9Sv" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="1" visibilityB="1" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" xmi.id="rZtgf4PtD8LA" changeabilityB="900" type="510">
-          <linepath layout="Polyline">
-           <startpoint startx="-231" starty="-22"/>
-           <endpoint endx="-231" endy="-74"/>
-          </linepath>
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-351" showstereotype="1" y="-72" text="current_situation" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="CS544YyPjBHP" pretext="-" role="710" width="123" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="f8gYiZfX8WDm" height="19"/>
-         </assocwidget>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="RDqjQhilpCYk" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="1Gg4YDNUSIdY" widgetbid="NAWpxh3tj9Sv" totalcountb="2" type="501" textcolor="none" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
-          <linepath layout="Polyline">
-           <startpoint startx="696" starty="9"/>
-           <endpoint endx="589" endy="9"/>
-          </linepath>
-         </assocwidget>
-        </associations>
-       </diagram>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="Preparing for downtime, sequence diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="445" canvaswidth="922" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" autoincrementsequence="1" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="6LyKUai8xh3L" documentation="" showscope="1" snapgrid="0" showatts="1" type="3">
-        <widgets>
-         <objectwidget linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="237" decon="0" showstereotype="1" y="80" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="3QhHr5C4zQ9D" width="51" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="NAWpxh3tj9Sv" height="25" drawasactor="0"/>
-         <objectwidget linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="-296" decon="0" showstereotype="1" y="80" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="sTOIytm4EiPg" width="64" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="RDqjQhilpCYk" height="25" drawasactor="0"/>
-         <notewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="312" showstereotype="1" y="101" text="Returns the current status back to cli" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="B9GNv9YrcQYk" width="134" isinstance="0" noteType="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="XnmlkHde49VF" height="52"/>
-         <notewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="320" showstereotype="1" y="276" text="prepare_downtime takes some time, and meanwhile cli can get progress information by sending SIGHUP to core. Progress info is then sent over stderr." font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="H8HtYpd6dPpN" width="239" isinstance="0" noteType="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="eTzjaSwudwNj" height="99"/>
-        </widgets>
-        <messages>
-         <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="EHgUThZjsg1U" operation="Gdsibn97f0Kh" linewidth="0" seqnum="1" textcolor="none" usesdiagramusefillcolor="1" x="-264" showstereotype="1" y="136" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="I5oFksYmGD37" width="534" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="Gdsibn97f0Kh" height="20" sequencemessagetype="1000">
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-256" showstereotype="1" y="117" text="status() : string" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="jWkvE9bUCOju" pretext="" role="704" width="125" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="EHgUThZjsg1U" height="19"/>
-         </messagewidget>
-         <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="VbiefZyo1n9s" operation="change(status = reruns, situation = do not acknowledge)" linewidth="0" seqnum="2" textcolor="none" usesdiagramusefillcolor="1" x="-264" showstereotype="1" y="187" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="xTveJdK094tL" width="534" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="BSpLqYF4owWF" height="20" sequencemessagetype="1000">
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-259" showstereotype="1" y="168" text="change(status = reruns, situation = do not acknowledge)" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="b3yUkyyfRrJi" pretext="" role="704" width="399" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="VbiefZyo1n9s" height="19"/>
-         </messagewidget>
-         <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="qmuJ3HTLbJzl" operation="prepare_downtime(start_date = tomorrow, end_date = Sunday)" linewidth="0" seqnum="3" textcolor="none" usesdiagramusefillcolor="1" x="-264" showstereotype="1" y="245" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="KPu6JRLuUJOC" width="534" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="HKpgC7Ohi4JM" height="101" sequencemessagetype="1000">
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-259" showstereotype="1" y="226" text="prepare_downtime(start_date = tomorrow, end_date = Sunday)" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="dFAf3KVLhPR0" pretext="" role="704" width="441" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="qmuJ3HTLbJzl" height="19"/>
-         </messagewidget>
-         <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="FQhC3OBwcUYD" operation="SIGHUP (send progress information)" linewidth="0" seqnum="4" textcolor="none" usesdiagramusefillcolor="1" x="-263" showstereotype="1" y="278" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="QOQ8SkS4xdj0" width="524" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="vEJcdkcSUUjY" height="8" sequencemessagetype="1001">
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-258" showstereotype="1" y="259" text="SIGHUP (send progress information)" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="lCrLTq6rCXyd" pretext="" role="704" width="260" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="FQhC3OBwcUYD" height="19"/>
-         </messagewidget>
-         <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="sTOIytm4EiPg" textid="TMjyMMwB6kBL" operation="progress information" linewidth="0" seqnum="5" textcolor="none" usesdiagramusefillcolor="1" x="-263" showstereotype="1" y="304" widgetaid="3QhHr5C4zQ9D" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="D8dfbMBKX0fy" width="524" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="rkq1HmeUCLgE" height="8" sequencemessagetype="1001">
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="82" showstereotype="1" y="285" text="progress information" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="jpAJIhVVn8AO" pretext="" role="704" width="161" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="TMjyMMwB6kBL" height="19"/>
-         </messagewidget>
-         <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="tpYtDAimBvNP" operation="Gdsibn97f0Kh" linewidth="0" seqnum="6" textcolor="none" usesdiagramusefillcolor="1" x="-264" showstereotype="1" y="380" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="u6kTiuKe1Ner" width="534" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="Gdsibn97f0Kh" height="20" sequencemessagetype="1000">
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-252" showstereotype="1" y="361" text="status() : string" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="vTtjA7F4EzVu" pretext="" role="704" width="125" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="tpYtDAimBvNP" height="19"/>
-         </messagewidget>
-        </messages>
-        <associations>
-         <assocwidget roleBdoc="" linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="Gdsibn97f0Kh" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="113" totalcounta="2" totalcountb="2" roleAdoc="" widgetaid="XnmlkHde49VF" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="513">
-          <linepath layout="Polyline">
-           <startpoint startx="312" starty="146"/>
-           <endpoint endx="270" endy="146"/>
-          </linepath>
-         </assocwidget>
-         <assocwidget roleBdoc="" linecolor="#ff0000" indexa="1" usesdiagramfillcolor="109" widgetbid="vEJcdkcSUUjY" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="108" totalcounta="2" totalcountb="2" roleAdoc="" widgetaid="eTzjaSwudwNj" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="513">
-          <linepath layout="Polyline">
-           <startpoint startx="320" starty="282"/>
-           <endpoint endx="261" endy="282"/>
-          </linepath>
-         </assocwidget>
-        </associations>
-       </diagram>
-      </diagrams>
-     </XMI.extension>
     </UML:Model>
     <UML:Model visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Use Case View" name="Use Case View">
      <UML:Namespace.ownedElement>
-      <UML:Actor visibility="public" isSpecification="false" namespace="Use Case View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="6Tuwg4YgmW5W" name="Listener"/>
-      <UML:Actor visibility="public" isSpecification="false" namespace="Use Case View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="oe9WdNuhqmdU" name="Technician"/>
-      <UML:UseCase visibility="public" isSpecification="false" namespace="Use Case View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ycAVeRWQ3gve" name="Prepare system for downtime"/>
-      <UML:UseCase visibility="public" isSpecification="false" namespace="Use Case View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="j4hBWZKT9Syl" name="Check system status"/>
-      <UML:UseCase visibility="public" isSpecification="false" namespace="Use Case View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="qKoymliToNfI" name="Switch between reruns, nightmusic and technical problems jingle"/>
-      <UML:UseCase visibility="public" isSpecification="false" namespace="Use Case View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="6iUybSOQkCMX" name="Listen to the stream"/>
       <UML:Association visibility="public" isSpecification="false" namespace="Use Case View" xmi.id="RFDbEKtL1LHa" name="">
        <UML:Association.connection>
         <UML:AssociationEnd changeability="changeable" visibility="public" isNavigable="true" isSpecification="false" xmi.id="of0YpM3jO2Qn" type="oe9WdNuhqmdU" name="" aggregation="none"/>
@@ -250,140 +257,154 @@
         <UML:AssociationEnd changeability="changeable" visibility="public" isNavigable="true" isSpecification="false" xmi.id="Q56TxOgDxFEZ" type="6iUybSOQkCMX" name="" aggregation="none"/>
        </UML:Association.connection>
       </UML:Association>
+      <UML:Package stereotype="folder" visibility="public" isSpecification="false" namespace="Use Case View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="o5KP3tUc6kkP" name="overview">
+       <UML:Namespace.ownedElement>
+        <UML:UseCase visibility="public" isSpecification="false" namespace="o5KP3tUc6kkP" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="j4hBWZKT9Syl" name="Check system status"/>
+        <UML:UseCase visibility="public" isSpecification="false" namespace="o5KP3tUc6kkP" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="6iUybSOQkCMX" name="Listen to the stream"/>
+        <UML:Actor visibility="public" isSpecification="false" namespace="o5KP3tUc6kkP" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="6Tuwg4YgmW5W" name="Listener"/>
+        <UML:UseCase visibility="public" isSpecification="false" namespace="o5KP3tUc6kkP" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ycAVeRWQ3gve" name="Prepare system for downtime"/>
+        <UML:UseCase visibility="public" isSpecification="false" namespace="o5KP3tUc6kkP" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="qKoymliToNfI" name="Switch between reruns, nightmusic and technical problems jingle"/>
+        <UML:Actor visibility="public" isSpecification="false" namespace="o5KP3tUc6kkP" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="oe9WdNuhqmdU" name="Technician"/>
+       </UML:Namespace.ownedElement>
+       <XMI.extension xmi.extender="umbrello">
+        <diagrams>
+         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="Use case diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="256" canvaswidth="968" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="M4MIVmL8i1DN" documentation="Shows the typical use cases for both technicians and listeners." showscope="1" snapgrid="0" showatts="1" type="2">
+          <widgets>
+           <actorwidget width="88" showstereotype="1" x="-204" usesdiagramusefillcolor="0" y="-98" usesdiagramfillcolor="0" isinstance="0" localid="GGPzgUh2Y2I3" fillcolor="#ffff00" height="88" linecolor="#ff0000" xmi.id="6Tuwg4YgmW5W" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <actorwidget width="78" showstereotype="1" x="-1084" usesdiagramusefillcolor="0" y="-163" usesdiagramfillcolor="0" isinstance="0" localid="pABbgG7vUUuA" fillcolor="#ffff00" height="78" linecolor="#ff0000" xmi.id="oe9WdNuhqmdU" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <usecasewidget width="227" showstereotype="1" x="-1021" usesdiagramusefillcolor="0" y="-266" usesdiagramfillcolor="0" isinstance="0" localid="3nMrZxJO7Uxm" fillcolor="#ffff00" height="53" linecolor="#ff0000" xmi.id="ycAVeRWQ3gve" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <usecasewidget width="161" showstereotype="1" x="-965" usesdiagramusefillcolor="0" y="-113" usesdiagramfillcolor="0" isinstance="0" localid="tUCuA7ZBst0R" fillcolor="#ffff00" height="53" linecolor="#ff0000" xmi.id="j4hBWZKT9Syl" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <usecasewidget width="491" showstereotype="1" x="-984" usesdiagramusefillcolor="0" y="-183" usesdiagramfillcolor="0" isinstance="0" localid="wxl6PhrHA19K" fillcolor="#ffff00" height="53" linecolor="#ff0000" xmi.id="qKoymliToNfI" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <usecasewidget width="159" showstereotype="1" x="-405" usesdiagramusefillcolor="0" y="-203" usesdiagramfillcolor="0" isinstance="0" localid="v4yhPd0LYjPw" fillcolor="#ffff00" height="53" linecolor="#ff0000" xmi.id="6iUybSOQkCMX" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+          </widgets>
+          <messages/>
+          <associations>
+           <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="oe9WdNuhqmdU" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="RFDbEKtL1LHa" widgetbid="ycAVeRWQ3gve" totalcountb="2" type="503" textcolor="none" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
+            <linepath layout="Polyline">
+             <startpoint startx="-1020" starty="-163"/>
+             <endpoint endx="-1020" endy="-213"/>
+            </linepath>
+           </assocwidget>
+           <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="oe9WdNuhqmdU" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="d3FcPWDBADjz" widgetbid="qKoymliToNfI" totalcountb="2" type="503" textcolor="none" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
+            <linepath layout="Polyline">
+             <startpoint startx="-1006" starty="-139"/>
+             <endpoint endx="-984" endy="-139"/>
+            </linepath>
+           </assocwidget>
+           <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="oe9WdNuhqmdU" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="cQwmcdk8QQ2B" widgetbid="j4hBWZKT9Syl" totalcountb="2" type="503" textcolor="none" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
+            <linepath layout="Polyline">
+             <startpoint startx="-1006" starty="-99"/>
+             <endpoint endx="-965" endy="-99"/>
+            </linepath>
+           </assocwidget>
+           <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="6Tuwg4YgmW5W" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="umpICsSia4j4" widgetbid="6iUybSOQkCMX" totalcountb="2" type="503" textcolor="none" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
+            <linepath layout="Polyline">
+             <startpoint startx="-204" starty="-98"/>
+             <endpoint endx="-246" endy="-150"/>
+            </linepath>
+           </assocwidget>
+           <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="ycAVeRWQ3gve" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="f5hD9QHPl4Zy" widgetbid="6iUybSOQkCMX" totalcountb="2" type="512" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
+            <linepath layout="Polyline">
+             <startpoint startx="-794" starty="-213"/>
+             <endpoint endx="-405" endy="-203"/>
+            </linepath>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-599.5" showstereotype="1" y="-209.5" text="Affects" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="NCj8TU02XC5w" pretext="" role="703" width="53" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="49eaYaXxdbQa" height="22"/>
+           </assocwidget>
+           <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="qKoymliToNfI" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="IZb1eAzBlJlt" widgetbid="6iUybSOQkCMX" totalcountb="2" type="512" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
+            <linepath layout="Polyline">
+             <startpoint startx="-493" starty="-153"/>
+             <endpoint endx="-405" endy="-153"/>
+            </linepath>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-449.5" showstereotype="1" y="-153" text="Affects" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="z4nxI1UfDDmh" pretext="" role="703" width="53" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="hkhFwk9ysnYQ" height="22"/>
+           </assocwidget>
+          </associations>
+         </diagram>
+        </diagrams>
+       </XMI.extension>
+      </UML:Package>
      </UML:Namespace.ownedElement>
-     <XMI.extension xmi.extender="umbrello">
-      <diagrams>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="Use case diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="256" canvaswidth="968" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="M4MIVmL8i1DN" documentation="Shows the typical use cases for both technicians and listeners." showscope="1" snapgrid="0" showatts="1" type="2">
-        <widgets>
-         <actorwidget width="88" showstereotype="1" x="-204" usesdiagramusefillcolor="0" y="-98" usesdiagramfillcolor="0" isinstance="0" localid="GGPzgUh2Y2I3" fillcolor="#ffff00" height="88" linecolor="#ff0000" xmi.id="6Tuwg4YgmW5W" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <actorwidget width="78" showstereotype="1" x="-1084" usesdiagramusefillcolor="0" y="-163" usesdiagramfillcolor="0" isinstance="0" localid="pABbgG7vUUuA" fillcolor="#ffff00" height="78" linecolor="#ff0000" xmi.id="oe9WdNuhqmdU" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <usecasewidget width="227" showstereotype="1" x="-1021" usesdiagramusefillcolor="0" y="-266" usesdiagramfillcolor="0" isinstance="0" localid="3nMrZxJO7Uxm" fillcolor="#ffff00" height="50" linecolor="#ff0000" xmi.id="ycAVeRWQ3gve" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <usecasewidget width="161" showstereotype="1" x="-965" usesdiagramusefillcolor="0" y="-113" usesdiagramfillcolor="0" isinstance="0" localid="tUCuA7ZBst0R" fillcolor="#ffff00" height="50" linecolor="#ff0000" xmi.id="j4hBWZKT9Syl" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <usecasewidget width="491" showstereotype="1" x="-984" usesdiagramusefillcolor="0" y="-183" usesdiagramfillcolor="0" isinstance="0" localid="wxl6PhrHA19K" fillcolor="#ffff00" height="50" linecolor="#ff0000" xmi.id="qKoymliToNfI" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <usecasewidget width="159" showstereotype="1" x="-405" usesdiagramusefillcolor="0" y="-203" usesdiagramfillcolor="0" isinstance="0" localid="v4yhPd0LYjPw" fillcolor="#ffff00" height="50" linecolor="#ff0000" xmi.id="6iUybSOQkCMX" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-        </widgets>
-        <messages/>
-        <associations>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="oe9WdNuhqmdU" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="RFDbEKtL1LHa" widgetbid="ycAVeRWQ3gve" totalcountb="2" type="503" textcolor="none" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
-          <linepath layout="Polyline">
-           <startpoint startx="-1020" starty="-163"/>
-           <endpoint endx="-1020" endy="-216"/>
-          </linepath>
-         </assocwidget>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="oe9WdNuhqmdU" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="d3FcPWDBADjz" widgetbid="qKoymliToNfI" totalcountb="2" type="503" textcolor="none" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
-          <linepath layout="Polyline">
-           <startpoint startx="-1006" starty="-139"/>
-           <endpoint endx="-984" endy="-139"/>
-          </linepath>
-         </assocwidget>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="oe9WdNuhqmdU" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="cQwmcdk8QQ2B" widgetbid="j4hBWZKT9Syl" totalcountb="2" type="503" textcolor="none" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
-          <linepath layout="Polyline">
-           <startpoint startx="-1006" starty="-99"/>
-           <endpoint endx="-965" endy="-99"/>
-          </linepath>
-         </assocwidget>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="6Tuwg4YgmW5W" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="umpICsSia4j4" widgetbid="6iUybSOQkCMX" totalcountb="2" type="503" textcolor="none" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
-          <linepath layout="Polyline">
-           <startpoint startx="-204" starty="-98"/>
-           <endpoint endx="-246" endy="-153"/>
-          </linepath>
-         </assocwidget>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="ycAVeRWQ3gve" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="f5hD9QHPl4Zy" widgetbid="6iUybSOQkCMX" totalcountb="2" type="512" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
-          <linepath layout="Polyline">
-           <startpoint startx="-794" starty="-216"/>
-           <endpoint endx="-405" endy="-203"/>
-          </linepath>
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-599.5" showstereotype="1" y="-209.5" text="Affects" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="NCj8TU02XC5w" pretext="" role="703" width="53" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="49eaYaXxdbQa" height="19"/>
-         </assocwidget>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="qKoymliToNfI" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="IZb1eAzBlJlt" widgetbid="6iUybSOQkCMX" totalcountb="2" type="512" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
-          <linepath layout="Polyline">
-           <startpoint startx="-493" starty="-153"/>
-           <endpoint endx="-405" endy="-153"/>
-          </linepath>
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-449.5" showstereotype="1" y="-153" text="Affects" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="z4nxI1UfDDmh" pretext="" role="703" width="53" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="hkhFwk9ysnYQ" height="19"/>
-         </assocwidget>
-        </associations>
-       </diagram>
-      </diagrams>
-     </XMI.extension>
     </UML:Model>
     <UML:Model visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Component View" name="Component View">
      <UML:Namespace.ownedElement>
-      <UML:Component visibility="public" isSpecification="false" namespace="Component View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="p6JhJbLBLct7" name="IceCast2" executable="0"/>
-      <UML:Component visibility="public" isSpecification="false" namespace="Component View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="nAsiyCgnGzTZ" name="LiquidSoap" executable="0"/>
-      <UML:Component visibility="public" isSpecification="false" namespace="Component View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="5XPtkBDVL5BJ" name="streamer-fallback" executable="0"/>
-      <UML:Component visibility="public" isSpecification="false" namespace="Component View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="QMzSgYPm5ofn" name="Listener (user)" executable="0"/>
-      <UML:Component visibility="public" isSpecification="false" namespace="Component View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="CmcWawEyIDOz" name="Technician (user)" executable="0"/>
       <UML:Dependency visibility="public" isSpecification="false" namespace="Component View" supplier="p6JhJbLBLct7" xmi.id="5wCoGx3YwG59" client="QMzSgYPm5ofn" name="streams final stream from"/>
       <UML:Dependency visibility="public" isSpecification="false" namespace="Component View" supplier="nAsiyCgnGzTZ" xmi.id="31uzFx78XDOJ" client="p6JhJbLBLct7" name="gets fallback stream from"/>
-      <UML:Artifact visibility="public" isSpecification="false" namespace="Component View" drawas="0" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="QrGv4fC9KpSq" name="LiquidSoap config"/>
       <UML:Dependency visibility="public" isSpecification="false" namespace="Component View" supplier="QrGv4fC9KpSq" xmi.id="srRlI9ug0Ab3" client="nAsiyCgnGzTZ" name="reads"/>
       <UML:Dependency visibility="public" isSpecification="false" namespace="Component View" supplier="5XPtkBDVL5BJ" xmi.id="mwHm4snsexyF" client="QrGv4fC9KpSq" name="generated by"/>
       <UML:Dependency visibility="public" isSpecification="false" namespace="Component View" supplier="CmcWawEyIDOz" xmi.id="vanZWlo3bDRr" client="5XPtkBDVL5BJ" name="operated by"/>
-      <UML:Artifact visibility="public" isSpecification="false" namespace="Component View" drawas="0" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="AP7jbXbbHLrU" name="IceCast config"/>
       <UML:Dependency visibility="public" isSpecification="false" namespace="Component View" supplier="AP7jbXbbHLrU" xmi.id="qg7Q6jUG6cyh" client="p6JhJbLBLct7" name="reads"/>
+      <UML:Package stereotype="folder" visibility="public" isSpecification="false" namespace="Component View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Yjt1wuhsx13M" name="overview">
+       <UML:Namespace.ownedElement>
+        <UML:Artifact visibility="public" isSpecification="false" namespace="Yjt1wuhsx13M" drawas="0" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="AP7jbXbbHLrU" name="IceCast config"/>
+        <UML:Component visibility="public" isSpecification="false" namespace="Yjt1wuhsx13M" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="p6JhJbLBLct7" name="IceCast2" executable="0"/>
+        <UML:Component visibility="public" isSpecification="false" namespace="Yjt1wuhsx13M" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="nAsiyCgnGzTZ" name="LiquidSoap" executable="0"/>
+        <UML:Artifact visibility="public" isSpecification="false" namespace="Yjt1wuhsx13M" drawas="0" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="QrGv4fC9KpSq" name="LiquidSoap config"/>
+        <UML:Component visibility="public" isSpecification="false" namespace="Yjt1wuhsx13M" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="QMzSgYPm5ofn" name="Listener (user)" executable="0"/>
+        <UML:Component visibility="public" isSpecification="false" namespace="Yjt1wuhsx13M" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="5XPtkBDVL5BJ" name="streamer-fallback" executable="0"/>
+        <UML:Component visibility="public" isSpecification="false" namespace="Yjt1wuhsx13M" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="CmcWawEyIDOz" name="Technician (user)" executable="0"/>
+       </UML:Namespace.ownedElement>
+       <XMI.extension xmi.extender="umbrello">
+        <diagrams>
+         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="High level component diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="400" canvaswidth="900" localid="-1" snapcsgrid="1" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="P2FRbaNXxoK0" documentation="The environment in which streamer-fallback operates, and its role in the big picture. You can see that it is operated by a technician, and that it affects the rest of the system by generating the LiquidSoap config. It is also able to restart LiquidSoap.&#xa;&#xa;Note that &quot;streamer-fallback&quot; is also used to refer to this entire system shown here, and not just the part that operates on LiquidSoap's config. This repo is concerned with the component streamer-fallback in this diagram." showscope="1" snapgrid="1" showatts="1" type="7">
+          <widgets>
+           <componentwidget width="125" showstereotype="1" x="-450" usesdiagramusefillcolor="0" y="-300" usesdiagramfillcolor="0" isinstance="0" localid="sPNL0lxPnDoM" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="p6JhJbLBLct7" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <componentwidget width="150" showstereotype="1" x="-475" usesdiagramusefillcolor="0" y="-125" usesdiagramfillcolor="0" isinstance="0" localid="boluQc1G1MZz" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="nAsiyCgnGzTZ" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <componentwidget width="200" showstereotype="1" x="-250" usesdiagramusefillcolor="0" y="25" usesdiagramfillcolor="0" isinstance="0" localid="Hr5XrY5SKoMk" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="5XPtkBDVL5BJ" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <componentwidget width="175" showstereotype="1" x="-25" usesdiagramusefillcolor="0" y="-300" usesdiagramfillcolor="0" isinstance="0" localid="yqGJwRbBJghA" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="QMzSgYPm5ofn" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <componentwidget width="200" showstereotype="1" x="50" usesdiagramusefillcolor="0" y="25" usesdiagramfillcolor="0" isinstance="0" localid="mojpaMdYCts6" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="CmcWawEyIDOz" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <artifactwidget width="150" showstereotype="1" x="-225" usesdiagramusefillcolor="0" y="-100" usesdiagramfillcolor="0" isinstance="0" localid="ZGWG8G2CvyLf" fillcolor="#ffff00" height="50" linecolor="#ff0000" xmi.id="QrGv4fC9KpSq" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <artifactwidget width="125" showstereotype="1" x="-650" usesdiagramusefillcolor="0" y="-300" usesdiagramfillcolor="0" isinstance="0" localid="ZlYSbqeOvr43" fillcolor="#ffff00" height="50" linecolor="#ff0000" xmi.id="AP7jbXbbHLrU" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <notewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-500" showstereotype="1" y="0" text="streamer-fallback may also&#xa;directly restart LiquidSoap" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="AswCC5IdaRML" width="225" isinstance="0" noteType="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="PT9q0Ya0u684" height="50"/>
+          </widgets>
+          <messages/>
+          <associations>
+           <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="QMzSgYPm5ofn" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="5wCoGx3YwG59" widgetbid="p6JhJbLBLct7" totalcountb="2" type="502" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
+            <linepath layout="Polyline">
+             <startpoint startx="-25" starty="-274"/>
+             <endpoint endx="-325" endy="-274"/>
+            </linepath>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-250" showstereotype="1" y="-275" text="streams final stream from" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="EAgnUHSWMLf1" pretext="" role="703" width="200" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="DUpbZ3sl8boe" height="25"/>
+           </assocwidget>
+           <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="p6JhJbLBLct7" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="31uzFx78XDOJ" widgetbid="nAsiyCgnGzTZ" totalcountb="2" type="502" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
+            <linepath layout="Polyline">
+             <startpoint startx="-406.5" starty="-225"/>
+             <endpoint endx="-406.5" endy="-125"/>
+            </linepath>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-400" showstereotype="1" y="-175" text="gets fallback stream from" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="25v9htqqQ7EH" pretext="" role="703" width="175" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="E7i5WcXn7LwU" height="25"/>
+           </assocwidget>
+           <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="nAsiyCgnGzTZ" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="srRlI9ug0Ab3" widgetbid="QrGv4fC9KpSq" totalcountb="2" type="502" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
+            <linepath layout="Polyline">
+             <startpoint startx="-325" starty="-72"/>
+             <endpoint endx="-225" endy="-72"/>
+            </linepath>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-300" showstereotype="1" y="-75" text="reads" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="q6twfiZr1z7g" pretext="" role="703" width="50" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="JsXmGBlwFFvf" height="25"/>
+           </assocwidget>
+           <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="QrGv4fC9KpSq" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="mwHm4snsexyF" widgetbid="5XPtkBDVL5BJ" totalcountb="2" type="502" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
+            <linepath layout="Polyline">
+             <startpoint startx="-90" starty="-50"/>
+             <endpoint endx="-90" endy="25"/>
+            </linepath>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-75" showstereotype="1" y="0" text="generated by" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="BLQIfMltVPez" pretext="" role="703" width="100" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="g6V0P91cboE8" height="25"/>
+           </assocwidget>
+           <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="5XPtkBDVL5BJ" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="vanZWlo3bDRr" widgetbid="CmcWawEyIDOz" totalcountb="2" type="502" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
+            <linepath layout="Polyline">
+             <startpoint startx="-50" starty="75"/>
+             <endpoint endx="50" endy="75"/>
+            </linepath>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-50" showstereotype="1" y="75" text="operated by" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="zpBF26sOy9Lh" pretext="" role="703" width="100" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="dOEBKiMxiPZi" height="25"/>
+           </assocwidget>
+           <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="p6JhJbLBLct7" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="qg7Q6jUG6cyh" widgetbid="AP7jbXbbHLrU" totalcountb="2" type="502" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
+            <linepath layout="Polyline">
+             <startpoint startx="-450" starty="-280"/>
+             <endpoint endx="-525" endy="-280"/>
+            </linepath>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-525" showstereotype="1" y="-275" text="reads" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="MuHxjT5ZawTD" pretext="" role="703" width="50" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="e22ezAIH0q3G" height="25"/>
+           </assocwidget>
+          </associations>
+         </diagram>
+        </diagrams>
+       </XMI.extension>
+      </UML:Package>
      </UML:Namespace.ownedElement>
-     <XMI.extension xmi.extender="umbrello">
-      <diagrams>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="High level component diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="400" canvaswidth="900" localid="-1" snapcsgrid="1" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="P2FRbaNXxoK0" documentation="The environment in which streamer-fallback operates, and its role in the big picture. You can see that it is operated by a technician, and that it affects the rest of the system by generating the LiquidSoap config. It is also able to restart LiquidSoap.&#xa;&#xa;Note that &quot;streamer-fallback&quot; is also used to refer to this entire system shown here, and not just the part that operates on LiquidSoap's config. This repo is concerned with the component streamer-fallback in this diagram." showscope="1" snapgrid="1" showatts="1" type="7">
-        <widgets>
-         <componentwidget width="125" showstereotype="1" x="-450" usesdiagramusefillcolor="0" y="-300" usesdiagramfillcolor="0" isinstance="0" localid="sPNL0lxPnDoM" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="p6JhJbLBLct7" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <componentwidget width="150" showstereotype="1" x="-475" usesdiagramusefillcolor="0" y="-125" usesdiagramfillcolor="0" isinstance="0" localid="boluQc1G1MZz" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="nAsiyCgnGzTZ" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <componentwidget width="200" showstereotype="1" x="-250" usesdiagramusefillcolor="0" y="25" usesdiagramfillcolor="0" isinstance="0" localid="Hr5XrY5SKoMk" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="5XPtkBDVL5BJ" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <componentwidget width="175" showstereotype="1" x="-25" usesdiagramusefillcolor="0" y="-300" usesdiagramfillcolor="0" isinstance="0" localid="yqGJwRbBJghA" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="QMzSgYPm5ofn" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <componentwidget width="200" showstereotype="1" x="50" usesdiagramusefillcolor="0" y="25" usesdiagramfillcolor="0" isinstance="0" localid="mojpaMdYCts6" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="CmcWawEyIDOz" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <artifactwidget width="150" showstereotype="1" x="-225" usesdiagramusefillcolor="0" y="-100" usesdiagramfillcolor="0" isinstance="0" localid="ZGWG8G2CvyLf" fillcolor="#ffff00" height="50" linecolor="#ff0000" xmi.id="QrGv4fC9KpSq" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <artifactwidget width="125" showstereotype="1" x="-650" usesdiagramusefillcolor="0" y="-300" usesdiagramfillcolor="0" isinstance="0" localid="ZlYSbqeOvr43" fillcolor="#ffff00" height="50" linecolor="#ff0000" xmi.id="AP7jbXbbHLrU" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
-         <notewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-500" showstereotype="1" y="0" text="streamer-fallback may also&#xa;directly restart LiquidSoap" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="AswCC5IdaRML" width="225" isinstance="0" noteType="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="PT9q0Ya0u684" height="50"/>
-        </widgets>
-        <messages/>
-        <associations>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="QMzSgYPm5ofn" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="5wCoGx3YwG59" widgetbid="p6JhJbLBLct7" totalcountb="2" type="502" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
-          <linepath layout="Polyline">
-           <startpoint startx="-25" starty="-274"/>
-           <endpoint endx="-325" endy="-274"/>
-          </linepath>
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-250" showstereotype="1" y="-275" text="streams final stream from" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="EAgnUHSWMLf1" pretext="" role="703" width="200" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="DUpbZ3sl8boe" height="25"/>
-         </assocwidget>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="p6JhJbLBLct7" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="31uzFx78XDOJ" widgetbid="nAsiyCgnGzTZ" totalcountb="2" type="502" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
-          <linepath layout="Polyline">
-           <startpoint startx="-406.5" starty="-225"/>
-           <endpoint endx="-406.5" endy="-125"/>
-          </linepath>
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-400" showstereotype="1" y="-175" text="gets fallback stream from" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="25v9htqqQ7EH" pretext="" role="703" width="175" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="E7i5WcXn7LwU" height="25"/>
-         </assocwidget>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="nAsiyCgnGzTZ" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="srRlI9ug0Ab3" widgetbid="QrGv4fC9KpSq" totalcountb="2" type="502" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
-          <linepath layout="Polyline">
-           <startpoint startx="-325" starty="-72"/>
-           <endpoint endx="-225" endy="-72"/>
-          </linepath>
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-300" showstereotype="1" y="-75" text="reads" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="q6twfiZr1z7g" pretext="" role="703" width="50" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="JsXmGBlwFFvf" height="25"/>
-         </assocwidget>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="QrGv4fC9KpSq" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="mwHm4snsexyF" widgetbid="5XPtkBDVL5BJ" totalcountb="2" type="502" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
-          <linepath layout="Polyline">
-           <startpoint startx="-90" starty="-50"/>
-           <endpoint endx="-90" endy="25"/>
-          </linepath>
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-75" showstereotype="1" y="0" text="generated by" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="BLQIfMltVPez" pretext="" role="703" width="100" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="g6V0P91cboE8" height="25"/>
-         </assocwidget>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="5XPtkBDVL5BJ" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="vanZWlo3bDRr" widgetbid="CmcWawEyIDOz" totalcountb="2" type="502" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
-          <linepath layout="Polyline">
-           <startpoint startx="-50" starty="75"/>
-           <endpoint endx="50" endy="75"/>
-          </linepath>
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-50" showstereotype="1" y="75" text="operated by" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="zpBF26sOy9Lh" pretext="" role="703" width="100" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="dOEBKiMxiPZi" height="25"/>
-         </assocwidget>
-         <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="0" widgetaid="p6JhJbLBLct7" usesdiagramfillcolor="0" fillcolor="#ffff00" linecolor="#ff0000" seqnum="" totalcounta="2" xmi.id="qg7Q6jUG6cyh" widgetbid="AP7jbXbbHLrU" totalcountb="2" type="502" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0">
-          <linepath layout="Polyline">
-           <startpoint startx="-450" starty="-280"/>
-           <endpoint endx="-525" endy="-280"/>
-          </linepath>
-          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-525" showstereotype="1" y="-275" text="reads" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="MuHxjT5ZawTD" pretext="" role="703" width="50" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="e22ezAIH0q3G" height="25"/>
-         </assocwidget>
-        </associations>
-       </diagram>
-      </diagrams>
-     </XMI.extension>
     </UML:Model>
     <UML:Model visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Deployment View" name="Deployment View">
      <UML:Namespace.ownedElement/>
@@ -395,39 +416,26 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="6LyKUai8xh3L" uniqueid="eTzjaSwudwNj" documentation=""/>
+  <docsettings viewid="M4MIVmL8i1DN" uniqueid="o5KP3tUc6kkP" documentation=""/>
   <listview>
    <listitem open="1" type="800" id="Views">
     <listitem open="1" type="821" id="Component View">
-     <listitem open="0" type="819" id="P2FRbaNXxoK0" label="High level component diagram"/>
-     <listitem open="1" type="824" id="AP7jbXbbHLrU"/>
-     <listitem open="1" type="822" id="p6JhJbLBLct7"/>
-     <listitem open="1" type="822" id="nAsiyCgnGzTZ"/>
-     <listitem open="1" type="824" id="QrGv4fC9KpSq"/>
-     <listitem open="1" type="822" id="QMzSgYPm5ofn"/>
-     <listitem open="1" type="822" id="5XPtkBDVL5BJ"/>
-     <listitem open="1" type="822" id="CmcWawEyIDOz"/>
+     <listitem open="0" type="820" id="Yjt1wuhsx13M">
+      <listitem open="0" type="819" id="P2FRbaNXxoK0" label="High level component diagram"/>
+      <listitem open="0" type="824" id="AP7jbXbbHLrU"/>
+      <listitem open="0" type="822" id="p6JhJbLBLct7"/>
+      <listitem open="0" type="822" id="nAsiyCgnGzTZ"/>
+      <listitem open="0" type="824" id="QrGv4fC9KpSq"/>
+      <listitem open="0" type="822" id="QMzSgYPm5ofn"/>
+      <listitem open="0" type="822" id="5XPtkBDVL5BJ"/>
+      <listitem open="0" type="822" id="CmcWawEyIDOz"/>
+     </listitem>
     </listitem>
     <listitem open="1" type="827" id="Deployment View"/>
     <listitem open="1" type="836" id="Entity Relationship Model"/>
     <listitem open="1" type="801" id="Logical View">
-     <listitem open="1" type="813" id="RDqjQhilpCYk">
-      <listitem open="0" type="815" id="wGxA6ekDhFhD"/>
-     </listitem>
-     <listitem open="1" type="813" id="NAWpxh3tj9Sv">
-      <listitem open="0" type="815" id="hlFAZB03nmmh"/>
-      <listitem open="0" type="814" id="rZtgf4PtD8LA"/>
-      <listitem open="0" type="814" id="WaPSz3FOF37d"/>
-      <listitem open="0" type="815" id="wQyJTjWbvZkH"/>
-      <listitem open="0" type="814" id="0swxs4Un690A"/>
-      <listitem open="0" type="814" id="badmjzutR0xT"/>
-      <listitem open="0" type="814" id="Z82NpV8nN3kF"/>
-      <listitem open="0" type="815" id="8wPMCbJ2Sowq"/>
-      <listitem open="0" type="815" id="b1YPmK40otLq"/>
-      <listitem open="0" type="815" id="WtqF28eiGIEx"/>
-      <listitem open="0" type="814" id="7E2BM0LUgEwX"/>
-      <listitem open="0" type="815" id="Gdsibn97f0Kh"/>
-     </listitem>
+     <listitem open="1" type="803" id="x5KBOp4yb0b4"/>
+     <listitem open="1" type="803" id="0Fa8YrMmUD1i"/>
      <listitem open="0" type="830" id="Datatypes">
       <listitem open="1" type="829" id="Y6HyOuWJFEuq"/>
       <listitem open="1" type="829" id="kagvPyRWnTT2"/>
@@ -455,36 +463,58 @@
       <listitem open="1" type="829" id="UIEnj7Pkp1uw"/>
       <listitem open="1" type="829" id="2jyRkmAtlS7k"/>
      </listitem>
-     <listitem open="1" type="813" id="Dgb1Zwr9I6NS"/>
-     <listitem open="1" type="813" id="bH8T4frNjBJO"/>
-     <listitem open="1" type="813" id="spOdtwYWAqjn"/>
-     <listitem open="1" type="813" id="t6n5wyFVFLyI"/>
-     <listitem open="1" type="813" id="AlphgbCXQaAH"/>
-     <listitem open="1" type="813" id="WgMA7nuHYjyC"/>
-     <listitem open="0" type="810" id="6LyKUai8xh3L" label="Preparing for downtime, sequence diagram"/>
-     <listitem open="1" type="813" id="Ma82NIQvQRID"/>
-     <listitem open="0" type="807" id="L4LyfjYfmJa4" label="Separation between core and cli"/>
-     <listitem open="1" type="831" id="R3mptdyUyMiT">
-      <listitem open="0" type="839" id="LBEuiUrHsav9"/>
-      <listitem open="0" type="839" id="WYTSuBw4EpKh"/>
-      <listitem open="0" type="839" id="ZOjgGJfkp6Dj"/>
+     <listitem open="0" type="803" id="ZFIAJN8HdhP9">
+      <listitem open="0" type="813" id="RDqjQhilpCYk">
+       <listitem open="0" type="815" id="wGxA6ekDhFhD"/>
+      </listitem>
+      <listitem open="0" type="813" id="NAWpxh3tj9Sv">
+       <listitem open="0" type="815" id="hlFAZB03nmmh"/>
+       <listitem open="0" type="814" id="rZtgf4PtD8LA"/>
+       <listitem open="0" type="814" id="WaPSz3FOF37d"/>
+       <listitem open="0" type="815" id="wQyJTjWbvZkH"/>
+       <listitem open="0" type="814" id="0swxs4Un690A"/>
+       <listitem open="0" type="814" id="badmjzutR0xT"/>
+       <listitem open="0" type="814" id="Z82NpV8nN3kF"/>
+       <listitem open="0" type="815" id="8wPMCbJ2Sowq"/>
+       <listitem open="0" type="815" id="b1YPmK40otLq"/>
+       <listitem open="0" type="815" id="WtqF28eiGIEx"/>
+       <listitem open="0" type="814" id="7E2BM0LUgEwX"/>
+       <listitem open="0" type="815" id="Gdsibn97f0Kh"/>
+      </listitem>
+      <listitem open="0" type="813" id="Dgb1Zwr9I6NS"/>
+      <listitem open="0" type="813" id="bH8T4frNjBJO"/>
+      <listitem open="0" type="813" id="spOdtwYWAqjn"/>
+      <listitem open="0" type="813" id="t6n5wyFVFLyI"/>
+      <listitem open="0" type="813" id="WgMA7nuHYjyC">
+       <listitem open="0" type="813" id="AlphgbCXQaAH"/>
+      </listitem>
+      <listitem open="0" type="810" id="6LyKUai8xh3L" label="Preparing for downtime, sequence diagram"/>
+      <listitem open="0" type="813" id="Ma82NIQvQRID"/>
+      <listitem open="0" type="807" id="L4LyfjYfmJa4" label="Separation between core and cli"/>
+      <listitem open="0" type="831" id="R3mptdyUyMiT">
+       <listitem open="0" type="839" id="LBEuiUrHsav9"/>
+       <listitem open="0" type="839" id="WYTSuBw4EpKh"/>
+       <listitem open="0" type="839" id="ZOjgGJfkp6Dj"/>
+      </listitem>
+      <listitem open="0" type="831" id="ioOY0wIqWwRH">
+       <listitem open="0" type="839" id="8FE72k7mZw0H"/>
+       <listitem open="0" type="839" id="vI6sEu6M9JU9"/>
+       <listitem open="0" type="839" id="kqpGkEVi9JmB"/>
+      </listitem>
+      <listitem open="0" type="813" id="dEKFeH5WLsbH"/>
+      <listitem open="0" type="813" id="GEaXtZSNGmYN"/>
      </listitem>
-     <listitem open="1" type="831" id="ioOY0wIqWwRH">
-      <listitem open="0" type="839" id="8FE72k7mZw0H"/>
-      <listitem open="0" type="839" id="vI6sEu6M9JU9"/>
-      <listitem open="0" type="839" id="kqpGkEVi9JmB"/>
-     </listitem>
-     <listitem open="1" type="813" id="dEKFeH5WLsbH"/>
-     <listitem open="1" type="813" id="GEaXtZSNGmYN"/>
     </listitem>
     <listitem open="1" type="802" id="Use Case View">
-     <listitem open="1" type="812" id="j4hBWZKT9Syl"/>
-     <listitem open="1" type="812" id="6iUybSOQkCMX"/>
-     <listitem open="1" type="811" id="6Tuwg4YgmW5W"/>
-     <listitem open="1" type="812" id="ycAVeRWQ3gve"/>
-     <listitem open="1" type="812" id="qKoymliToNfI"/>
-     <listitem open="1" type="811" id="oe9WdNuhqmdU"/>
-     <listitem open="0" type="805" id="M4MIVmL8i1DN" label="Use case diagram"/>
+     <listitem open="0" type="804" id="o5KP3tUc6kkP">
+      <listitem open="0" type="812" id="j4hBWZKT9Syl"/>
+      <listitem open="0" type="812" id="6iUybSOQkCMX"/>
+      <listitem open="0" type="811" id="6Tuwg4YgmW5W"/>
+      <listitem open="0" type="812" id="ycAVeRWQ3gve"/>
+      <listitem open="0" type="812" id="qKoymliToNfI"/>
+      <listitem open="0" type="811" id="oe9WdNuhqmdU"/>
+      <listitem open="0" type="805" id="M4MIVmL8i1DN" label="Use case diagram"/>
+     </listitem>
     </listitem>
    </listitem>
   </listview>
