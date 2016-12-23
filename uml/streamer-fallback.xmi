@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI verified="false" xmi.version="1.2" timestamp="2016-12-23T16:49:08" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
+<XMI verified="false" xmi.version="1.2" timestamp="2016-12-23T20:34:45" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
@@ -43,6 +43,8 @@
         <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="NeLD9UleIzOR" name="dict"/>
         <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="zt64fkWLtJFF" name="object"/>
         <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="zxDL7bqSEBeN" name="set"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="apXpa374VWMK" name="datetime.datetime"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="XzPDXXBUa11U" name="datetime.date"/>
        </UML:Namespace.ownedElement>
       </UML:Package>
       <UML:Association visibility="public" isSpecification="false" namespace="Logical View" xmi.id="1Gg4YDNUSIdY" name="">
@@ -53,9 +55,96 @@
       </UML:Association>
       <UML:Package stereotype="folder" visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="0Fa8YrMmUD1i" name="core">
        <UML:Namespace.ownedElement/>
+       <XMI.extension xmi.extender="umbrello">
+        <diagrams>
+         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="0" showpackage="1" showpubliconly="0" showstereotype="1" name="core class diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="0" canvaswidth="0" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="qDSbyc4J9uMJ" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
+          <widgets/>
+          <messages/>
+          <associations/>
+         </diagram>
+        </diagrams>
+       </XMI.extension>
       </UML:Package>
       <UML:Package stereotype="folder" visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="x5KBOp4yb0b4" name="cli">
-       <UML:Namespace.ownedElement/>
+       <UML:Namespace.ownedElement>
+        <UML:Class visibility="public" isSpecification="false" namespace="x5KBOp4yb0b4" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WXddRywTNB0R" comment="Class implementing the command line interface." name="cli-main">
+         <UML:Classifier.feature>
+          <UML:Attribute visibility="protected" isSpecification="false" xmi.id="4eetetAd6twT" type="2PGY67bU2mVh" comment="Instance of streamer-fallback-layer" name="streamer-fallback-layer"/>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="hFr59KPfr2HH" comment="Matches the run operation from the overview class diagram. Starts up and runs the user interface. To be called from the main program." name="run"/>
+          <UML:Operation visibility="protected" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="yDiJOilfGgza" comment="Runs the process of letting the user change the different properties of streamer-fallback." name="run_change_status"/>
+          <UML:Operation visibility="protected" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="5xpyUcuCrjHy" comment="Guide the user through the process of preparing streamer-fallback for downtime on the file server or the schedule API." name="run_prepare_downtime"/>
+         </UML:Classifier.feature>
+        </UML:Class>
+        <UML:Class visibility="public" isSpecification="false" namespace="x5KBOp4yb0b4" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="2PGY67bU2mVh" comment="Abstraction of the communication with streamer-fallback core. It eases access to the current status, changes to the status and restart of LiquidSoap." name="streamer-fallback-layer">
+         <UML:Classifier.feature>
+          <UML:Attribute visibility="public" isSpecification="false" xmi.id="U6fyq0ogj5Ye" type="ioOY0wIqWwRH" comment="Implemented using properties. Mirrors current_status in core." name="current_status"/>
+          <UML:Attribute visibility="public" isSpecification="false" xmi.id="59SuFNFoiZqk" type="R3mptdyUyMiT" comment="Implemented using properties. Mirrors current_situation in core." name="current_situation"/>
+          <UML:Attribute visibility="public" isSpecification="false" xmi.id="lHqRogBQWv9C" type="kagvPyRWnTT2" comment="Implemented using properties in Python, allowing data validation and such. Mirrors the live_shows attribute of core" name="live_shows_present"/>
+          <UML:Attribute visibility="public" isSpecification="false" xmi.id="EiWqNUgVGnWK" type="HJWkeOkEp1og" comment="Implemented using properties. Mirrors the nightmusic_show_name attribute of core" name="nightmusic_show_name"/>
+          <UML:Attribute visibility="protected" isSpecification="false" xmi.id="oXgpUruSeH7U" type="RXITuOvJBpKW" comment="PID of the currently (or last) running streamer-fallback-core process." name="last_pid"/>
+          <UML:Attribute visibility="protected" isSpecification="false" xmi.id="oqt7471MQw9F" type="RXITuOvJBpKW" comment="File pointer for the currently running process of streamer-fallback-core's stderr." name="last_stderr"/>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="UTRKrSMahDzT" comment="Apply any changes to the attributes to streamer-fallback-core, and restart LiquidSoap to take those changes into effect." name="commit"/>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ymPhsWjRJGEt" comment="Propogate any changes to the attributes to streamer-fallback-core, but do not restart LiquidSoap before the given time." name="commit_at">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="ILxnrI5n1xRv" type="apXpa374VWMK" value="" comment="The time at which LiquidSoap should be restarted." name="datetime"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+          <UML:Operation visibility="protected" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="cftEw0jioaqt" comment="Helper function for running a command and extracting its PID and stderr so the progress can be polled." name="run_command">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter kind="return" xmi.id="0Zgn9WgpJtw2" type="HJWkeOkEp1og"/>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="ipF6lNMyZN9j" type="HJWkeOkEp1og" value="" comment="The command to run, given as a list of arguments." name="command"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="nGfj1QAd32qz" comment="Poll streamer-fallback-core for its progress.&#xa;&#xa;This can only be run in parallell to another call to streamer-fallback-layer. Running multiple operations at once is not supported." name="get_progress">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter kind="return" xmi.id="cEydEoaCLGzT" type="RXITuOvJBpKW"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GG0qb8XMOC5N" comment="Prepare for a period of downtime." name="prepare">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="3sRcsT6Hp89X" type="XzPDXXBUa11U" value="" comment="First date for which reruns and schedules shall be downloaded now." name="start_date"/>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="E8MaKPvubsXp" type="zt64fkWLtJFF" value="" comment="The last date for which reruns and schedules shall be downloaded now. Can be either a datetime.date which is used as-is or a datetime.timedelta, in which case it will be added to the start_date." name="end_date"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+         </UML:Classifier.feature>
+        </UML:Class>
+       </UML:Namespace.ownedElement>
+       <XMI.extension xmi.extender="umbrello">
+        <diagrams>
+         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="cli class diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="405" canvaswidth="1065" localid="-1" snapcsgrid="0" showgrid="1" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="PwD1fB0rcefy" documentation="Class diagram detailing the classes involved in the streamer-fallback-cli program." showscope="1" snapgrid="1" showatts="1" type="1">
+          <widgets>
+           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-500" showattsigs="601" showstereotype="1" y="-175" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="vTZX5CUtNuVK" width="379" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="2PGY67bU2mVh" showscope="1" height="180" showopsigs="601"/>
+           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="125" showattsigs="601" showstereotype="1" y="-175" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="IZvKMR0FsXny" width="340" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="WXddRywTNB0R" showscope="1" height="75" showopsigs="601"/>
+           <enumwidget width="175" showstereotype="1" x="-350" usesdiagramusefillcolor="0" y="-400" usesdiagramfillcolor="0" isinstance="0" localid="rkJsvhQjy5M1" fillcolor="#ffff00" height="90" linecolor="#ff0000" xmi.id="R3mptdyUyMiT" showpackage="1" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+           <enumwidget width="201" showstereotype="1" x="-600" usesdiagramusefillcolor="0" y="-400" usesdiagramfillcolor="0" isinstance="0" localid="2x4cB3rHAhS8" fillcolor="#ffff00" height="90" linecolor="#ff0000" xmi.id="ioOY0wIqWwRH" showpackage="1" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
+          </widgets>
+          <messages/>
+          <associations>
+           <assocwidget linecolor="#ff0000" indexa="1" usesdiagramfillcolor="1" widgetbid="2PGY67bU2mVh" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="WXddRywTNB0R" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="2" visibilityB="2" usefillcolor="1" fillcolor="none" changeabilityA="900" xmi.id="4eetetAd6twT" changeabilityB="900" type="510">
+            <linepath layout="Polyline">
+             <startpoint startx="125" starty="-160.5"/>
+             <endpoint endx="-121" endy="-160.5"/>
+            </linepath>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-105" showstereotype="1" y="-150" text="streamer-fallback-layer" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="Zh8pO5PR3DPX" pretext="#" role="710" width="166" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="nJhd3wb5aDyF" height="22"/>
+           </assocwidget>
+           <assocwidget linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="ioOY0wIqWwRH" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="1" totalcounta="2" totalcountb="2" widgetaid="2PGY67bU2mVh" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" xmi.id="U6fyq0ogj5Ye" changeabilityB="900" type="510">
+            <linepath layout="Polyline">
+             <startpoint startx="-499.5" starty="-175"/>
+             <endpoint endx="-499.5" endy="-310"/>
+            </linepath>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-600" showstereotype="1" y="-300" text="current_status" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="mwLl2hk2dpem" pretext="+" role="710" width="111" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="qU3y9U4dYhbN" height="22"/>
+           </assocwidget>
+           <assocwidget linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="R3mptdyUyMiT" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="2PGY67bU2mVh" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" xmi.id="59SuFNFoiZqk" changeabilityB="900" type="510">
+            <linepath layout="Polyline">
+             <startpoint startx="-262.5" starty="-175"/>
+             <endpoint endx="-262.5" endy="-310"/>
+            </linepath>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-375" showstereotype="1" y="-300" text="current_situation" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="epmjgKaKcfyr" pretext="+" role="710" width="127" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="8o723hx9qP14" height="22"/>
+           </assocwidget>
+          </associations>
+         </diagram>
+        </diagrams>
+       </XMI.extension>
       </UML:Package>
       <UML:Package stereotype="folder" visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ZFIAJN8HdhP9" name="overview">
        <UML:Namespace.ownedElement>
@@ -64,20 +153,20 @@
           <UML:Class visibility="public" isSpecification="false" namespace="WgMA7nuHYjyC" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="AlphgbCXQaAH" name="LiquidSoap configuration"/>
          </UML:Namespace.ownedElement>
         </UML:Class>
-        <UML:Enumeration stereotype="enum" visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="R3mptdyUyMiT" name="situation">
-         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="R3mptdyUyMiT" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WYTSuBw4EpKh" value="1" name="planned downtime"/>
-         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="R3mptdyUyMiT" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ZOjgGJfkp6Dj" value="2" name="unplanned downtime"/>
-         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="R3mptdyUyMiT" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="LBEuiUrHsav9" value="3" name="hide downtime"/>
+        <UML:Enumeration stereotype="enum" visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="R3mptdyUyMiT" comment="Says whether the current outage is to be acknowledged as planned,  unplanned or not acknowledged at all." name="situation">
+         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="R3mptdyUyMiT" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="WYTSuBw4EpKh" value="1" comment="Downtime is planned." name="planned downtime"/>
+         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="R3mptdyUyMiT" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ZOjgGJfkp6Dj" value="2" comment="Downtime is not planned." name="unplanned downtime"/>
+         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="R3mptdyUyMiT" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="LBEuiUrHsav9" value="3" comment="No, we're not down, what are you talking about?" name="hide downtime"/>
         </UML:Enumeration>
         <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Ma82NIQvQRID" name="Schedule"/>
         <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Dgb1Zwr9I6NS" name="datetime"/>
         <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="bH8T4frNjBJO" name="IceCast2"/>
         <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="t6n5wyFVFLyI" name="LiquidSoap"/>
         <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="spOdtwYWAqjn" name="IceCast2 configuration"/>
-        <UML:Enumeration stereotype="enum" visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ioOY0wIqWwRH" name="statuses">
-         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="ioOY0wIqWwRH" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="kqpGkEVi9JmB" value="1" name="technical problems-jingle"/>
-         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="ioOY0wIqWwRH" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8FE72k7mZw0H" value="2" name="nightmusic"/>
-         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="ioOY0wIqWwRH" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="vI6sEu6M9JU9" value="3" name="reruns"/>
+        <UML:Enumeration stereotype="enum" visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="ioOY0wIqWwRH" comment="Enum which tells what the listener shall hear if the streamer goes down." name="statuses">
+         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="ioOY0wIqWwRH" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="kqpGkEVi9JmB" value="1" comment="A constant loop of a jingle saying that there are technical problems. Depending on the current situation, the problem may be presented as being planned or not planned (not acknowledged is treated as not planned)." name="technical problems-jingle"/>
+         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="ioOY0wIqWwRH" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8FE72k7mZw0H" value="2" comment="A collection of music from a set folder is played, with stinger playing between each track. The current situation decides which jingle to play in between." name="nightmusic"/>
+         <UML:EnumerationLiteral visibility="public" isSpecification="false" namespace="ioOY0wIqWwRH" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="vI6sEu6M9JU9" value="3" comment="Transparent: make an attempt to cover up the lack of a proper stream by playing the same reruns that were scheduled to be played. The current situation is ignored. Shows with a name matching nightmusic_show_name will play nightmusic. Shows that look like live shows (no (R) in title and no rerun planned on the rerunner) will play the technical problems-jingle if live_shows_present is true, reruns of that show is run if not." name="reruns"/>
         </UML:Enumeration>
         <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="dEKFeH5WLsbH" name="streamer-fallback"/>
         <UML:Class visibility="public" isSpecification="false" namespace="ZFIAJN8HdhP9" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="GEaXtZSNGmYN" name="Technician"/>
@@ -140,7 +229,7 @@
        </UML:Namespace.ownedElement>
        <XMI.extension xmi.extender="umbrello">
         <diagrams>
-         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="Preparing for downtime, sequence diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="395" canvaswidth="855" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" autoincrementsequence="1" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="6LyKUai8xh3L" documentation="" showscope="1" snapgrid="0" showatts="1" type="3">
+         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="Preparing for downtime, sequence diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="392" canvaswidth="855" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" autoincrementsequence="1" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="6LyKUai8xh3L" documentation="" showscope="1" snapgrid="0" showatts="1" type="3">
           <widgets>
            <objectwidget linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="237" decon="0" showstereotype="1" y="80" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="3QhHr5C4zQ9D" width="51" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="NAWpxh3tj9Sv" height="28" drawasactor="0"/>
            <objectwidget linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="-296" decon="0" showstereotype="1" y="80" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="sTOIytm4EiPg" width="64" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="RDqjQhilpCYk" height="28" drawasactor="0"/>
@@ -184,8 +273,8 @@
          </diagram>
          <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="Separation between core and cli" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="370" canvaswidth="1145" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="107" xmi.id="L4LyfjYfmJa4" documentation="We might want other interfaces than a command line interface in the future, like for example a web interface. Therefore, streamer-fallback is split into two parts: cli provides the command line interface, and core provides the actual functionality in a manner that is easy to use for a program. This diagram shows how the two interact with respect to functionality." showscope="1" snapgrid="0" showatts="1" type="1">
           <widgets>
-           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-231" showattsigs="601" showstereotype="1" y="-22" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="q2hp3LCIyRgo" width="820" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="NAWpxh3tj9Sv" showscope="1" height="195" showopsigs="601"/>
-           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="696" showattsigs="601" showstereotype="1" y="-8" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="rbdbl4WZ6BO7" width="98" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="RDqjQhilpCYk" showscope="1" height="37" showopsigs="601"/>
+           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-231" showattsigs="601" showstereotype="1" y="-22" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="q2hp3LCIyRgo" width="820" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="NAWpxh3tj9Sv" showscope="1" height="234" showopsigs="601"/>
+           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="696" showattsigs="601" showstereotype="1" y="-8" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="rbdbl4WZ6BO7" width="98" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="RDqjQhilpCYk" showscope="1" height="45" showopsigs="601"/>
            <enumwidget width="201" showstereotype="1" x="-108" usesdiagramusefillcolor="0" y="-149" usesdiagramfillcolor="0" isinstance="0" localid="0vo44CBYkY1h" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="ioOY0wIqWwRH" showpackage="1" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
            <enumwidget width="175" showstereotype="1" x="-328" usesdiagramusefillcolor="0" y="-149" usesdiagramfillcolor="0" isinstance="0" localid="A4tFVBYpYCHB" fillcolor="#ffff00" height="75" linecolor="#ff0000" xmi.id="R3mptdyUyMiT" showpackage="1" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
            <notewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="178" showstereotype="1" y="-158" text="This class diagram is not to be taken as a literal&#xa;class diagram. In this case, cli and core are two&#xa;different _programs_ that interact with another&#xa;by running commands and giving input and/or&#xa;output through stdin and stdout/stderr." font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="dP1vOOMNFTQv" width="356" isinstance="0" noteType="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="DwE6ETKBQXWV" height="95"/>
@@ -416,7 +505,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="M4MIVmL8i1DN" uniqueid="o5KP3tUc6kkP" documentation=""/>
+  <docsettings viewid="PwD1fB0rcefy" uniqueid="3sRcsT6Hp89X" documentation=""/>
   <listview>
    <listitem open="1" type="800" id="Views">
     <listitem open="1" type="821" id="Component View">
@@ -434,12 +523,37 @@
     <listitem open="1" type="827" id="Deployment View"/>
     <listitem open="1" type="836" id="Entity Relationship Model"/>
     <listitem open="1" type="801" id="Logical View">
-     <listitem open="1" type="803" id="x5KBOp4yb0b4"/>
-     <listitem open="1" type="803" id="0Fa8YrMmUD1i"/>
-     <listitem open="0" type="830" id="Datatypes">
+     <listitem open="1" type="803" id="x5KBOp4yb0b4">
+      <listitem open="0" type="807" id="PwD1fB0rcefy" label="cli class diagram"/>
+      <listitem open="0" type="813" id="WXddRywTNB0R">
+       <listitem open="0" type="815" id="yDiJOilfGgza"/>
+       <listitem open="0" type="815" id="5xpyUcuCrjHy"/>
+       <listitem open="0" type="815" id="hFr59KPfr2HH"/>
+       <listitem open="0" type="814" id="4eetetAd6twT"/>
+      </listitem>
+      <listitem open="0" type="813" id="2PGY67bU2mVh">
+       <listitem open="0" type="815" id="ymPhsWjRJGEt"/>
+       <listitem open="0" type="815" id="UTRKrSMahDzT"/>
+       <listitem open="0" type="814" id="59SuFNFoiZqk"/>
+       <listitem open="0" type="814" id="U6fyq0ogj5Ye"/>
+       <listitem open="0" type="815" id="nGfj1QAd32qz"/>
+       <listitem open="0" type="814" id="oXgpUruSeH7U"/>
+       <listitem open="0" type="814" id="oqt7471MQw9F"/>
+       <listitem open="0" type="814" id="lHqRogBQWv9C"/>
+       <listitem open="0" type="814" id="EiWqNUgVGnWK"/>
+       <listitem open="0" type="815" id="GG0qb8XMOC5N"/>
+       <listitem open="0" type="815" id="cftEw0jioaqt"/>
+      </listitem>
+     </listitem>
+     <listitem open="1" type="803" id="0Fa8YrMmUD1i">
+      <listitem open="0" type="807" id="qDSbyc4J9uMJ" label="core class diagram"/>
+     </listitem>
+     <listitem open="1" type="830" id="Datatypes">
       <listitem open="1" type="829" id="Y6HyOuWJFEuq"/>
       <listitem open="1" type="829" id="kagvPyRWnTT2"/>
       <listitem open="1" type="829" id="EeXPbFaH2OfY"/>
+      <listitem open="1" type="829" id="XzPDXXBUa11U"/>
+      <listitem open="1" type="829" id="apXpa374VWMK"/>
       <listitem open="1" type="829" id="NeLD9UleIzOR"/>
       <listitem open="1" type="829" id="aSJcrx8GUOhM"/>
       <listitem open="1" type="829" id="7p4zHoqTSLs2"/>
@@ -463,7 +577,7 @@
       <listitem open="1" type="829" id="UIEnj7Pkp1uw"/>
       <listitem open="1" type="829" id="2jyRkmAtlS7k"/>
      </listitem>
-     <listitem open="0" type="803" id="ZFIAJN8HdhP9">
+     <listitem open="1" type="803" id="ZFIAJN8HdhP9">
       <listitem open="0" type="813" id="RDqjQhilpCYk">
        <listitem open="0" type="815" id="wGxA6ekDhFhD"/>
       </listitem>
@@ -506,7 +620,7 @@
      </listitem>
     </listitem>
     <listitem open="1" type="802" id="Use Case View">
-     <listitem open="0" type="804" id="o5KP3tUc6kkP">
+     <listitem open="1" type="804" id="o5KP3tUc6kkP">
       <listitem open="0" type="812" id="j4hBWZKT9Syl"/>
       <listitem open="0" type="812" id="6iUybSOQkCMX"/>
       <listitem open="0" type="811" id="6Tuwg4YgmW5W"/>
