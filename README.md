@@ -33,7 +33,7 @@ README skrives på norsk, brukergrensesnitt skrives på norsk, ellers skrives al
 Hvis du gjør endringer i UML-diagrammene, MÅ du eksportere nye versjoner av disse i samme commit. Det tillates ikke
 eksporterte diagrammer ikke matcher originalen.
 
-Det er Umbrello som brukes som UML-diagram-verktøy. Ved eksport trenger du bare å velge «Export as images…» og
+Det er [Umbrello](https://umbrello.kde.org/) som brukes som UML-diagram-verktøy. Ved eksport trenger du bare å velge «Export as images…» og
 eksportere alle diagrammer inn i `uml`-mappa.
 
 ## Detaljerte krav
