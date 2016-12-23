@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI verified="false" xmi.version="1.2" timestamp="2016-12-23T14:39:36" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
+<XMI verified="false" xmi.version="1.2" timestamp="2016-12-23T15:13:05" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
@@ -129,7 +129,7 @@
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello">
       <diagrams>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="Separation between core and cli" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="331" canvaswidth="1192" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="L4LyfjYfmJa4" documentation="We might want other interfaces than a command line interface in the future, like for example a web interface. Therefore, streamer-fallback is split into two parts: cli provides the command line interface, and core provides the actual functionality in a manner that is easy to use for a program. This diagram shows how the two interact with respect to functionality." showscope="1" snapgrid="0" showatts="1" type="1">
+       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="Separation between core and cli" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="331" canvaswidth="1192" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="86,95652173913044" xmi.id="L4LyfjYfmJa4" documentation="We might want other interfaces than a command line interface in the future, like for example a web interface. Therefore, streamer-fallback is split into two parts: cli provides the command line interface, and core provides the actual functionality in a manner that is easy to use for a program. This diagram shows how the two interact with respect to functionality." showscope="1" snapgrid="0" showatts="1" type="1">
         <widgets>
          <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-231" showattsigs="601" showstereotype="1" y="-22" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="q2hp3LCIyRgo" width="820" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="NAWpxh3tj9Sv" showscope="1" height="195" showopsigs="601"/>
          <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="696" showattsigs="601" showstereotype="1" y="-8" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="rbdbl4WZ6BO7" width="98" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="RDqjQhilpCYk" showscope="1" height="37" showopsigs="601"/>
@@ -157,6 +157,48 @@
           <linepath layout="Polyline">
            <startpoint startx="696" starty="9"/>
            <endpoint endx="589" endy="9"/>
+          </linepath>
+         </assocwidget>
+        </associations>
+       </diagram>
+       <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="Preparing for downtime, sequence diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="445" canvaswidth="922" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" autoincrementsequence="1" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="6LyKUai8xh3L" documentation="" showscope="1" snapgrid="0" showatts="1" type="3">
+        <widgets>
+         <objectwidget linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="237" decon="0" showstereotype="1" y="80" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="3QhHr5C4zQ9D" width="51" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="NAWpxh3tj9Sv" height="25" drawasactor="0"/>
+         <objectwidget linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="-296" decon="0" showstereotype="1" y="80" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="sTOIytm4EiPg" width="64" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="RDqjQhilpCYk" height="25" drawasactor="0"/>
+         <notewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="312" showstereotype="1" y="101" text="Returns the current status back to cli" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="B9GNv9YrcQYk" width="134" isinstance="0" noteType="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="XnmlkHde49VF" height="52"/>
+         <notewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="320" showstereotype="1" y="276" text="prepare_downtime takes some time, and meanwhile cli can get progress information by sending SIGHUP to core. Progress info is then sent over stderr." font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="H8HtYpd6dPpN" width="239" isinstance="0" noteType="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="eTzjaSwudwNj" height="99"/>
+        </widgets>
+        <messages>
+         <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="EHgUThZjsg1U" operation="Gdsibn97f0Kh" linewidth="0" seqnum="1" textcolor="none" usesdiagramusefillcolor="1" x="-264" showstereotype="1" y="136" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="I5oFksYmGD37" width="534" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="Gdsibn97f0Kh" height="20" sequencemessagetype="1000">
+          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-256" showstereotype="1" y="117" text="status() : string" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="jWkvE9bUCOju" pretext="" role="704" width="125" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="EHgUThZjsg1U" height="19"/>
+         </messagewidget>
+         <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="VbiefZyo1n9s" operation="change(status = reruns, situation = do not acknowledge)" linewidth="0" seqnum="2" textcolor="none" usesdiagramusefillcolor="1" x="-264" showstereotype="1" y="187" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="xTveJdK094tL" width="534" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="BSpLqYF4owWF" height="20" sequencemessagetype="1000">
+          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-259" showstereotype="1" y="168" text="change(status = reruns, situation = do not acknowledge)" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="b3yUkyyfRrJi" pretext="" role="704" width="399" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="VbiefZyo1n9s" height="19"/>
+         </messagewidget>
+         <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="qmuJ3HTLbJzl" operation="prepare_downtime(start_date = tomorrow, end_date = Sunday)" linewidth="0" seqnum="3" textcolor="none" usesdiagramusefillcolor="1" x="-264" showstereotype="1" y="245" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="KPu6JRLuUJOC" width="534" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="HKpgC7Ohi4JM" height="101" sequencemessagetype="1000">
+          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-259" showstereotype="1" y="226" text="prepare_downtime(start_date = tomorrow, end_date = Sunday)" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="dFAf3KVLhPR0" pretext="" role="704" width="441" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="qmuJ3HTLbJzl" height="19"/>
+         </messagewidget>
+         <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="FQhC3OBwcUYD" operation="SIGHUP (send progress information)" linewidth="0" seqnum="4" textcolor="none" usesdiagramusefillcolor="1" x="-263" showstereotype="1" y="278" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="QOQ8SkS4xdj0" width="524" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="vEJcdkcSUUjY" height="8" sequencemessagetype="1001">
+          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-258" showstereotype="1" y="259" text="SIGHUP (send progress information)" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="lCrLTq6rCXyd" pretext="" role="704" width="260" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="FQhC3OBwcUYD" height="19"/>
+         </messagewidget>
+         <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="sTOIytm4EiPg" textid="TMjyMMwB6kBL" operation="progress information" linewidth="0" seqnum="5" textcolor="none" usesdiagramusefillcolor="1" x="-263" showstereotype="1" y="304" widgetaid="3QhHr5C4zQ9D" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="D8dfbMBKX0fy" width="524" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="rkq1HmeUCLgE" height="8" sequencemessagetype="1001">
+          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="82" showstereotype="1" y="285" text="progress information" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="jpAJIhVVn8AO" pretext="" role="704" width="161" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="TMjyMMwB6kBL" height="19"/>
+         </messagewidget>
+         <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="3QhHr5C4zQ9D" textid="tpYtDAimBvNP" operation="Gdsibn97f0Kh" linewidth="0" seqnum="6" textcolor="none" usesdiagramusefillcolor="1" x="-264" showstereotype="1" y="380" widgetaid="sTOIytm4EiPg" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="u6kTiuKe1Ner" width="534" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="Gdsibn97f0Kh" height="20" sequencemessagetype="1000">
+          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-252" showstereotype="1" y="361" text="status() : string" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="vTtjA7F4EzVu" pretext="" role="704" width="125" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="tpYtDAimBvNP" height="19"/>
+         </messagewidget>
+        </messages>
+        <associations>
+         <assocwidget roleBdoc="" linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="Gdsibn97f0Kh" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="113" totalcounta="2" totalcountb="2" roleAdoc="" widgetaid="XnmlkHde49VF" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="513">
+          <linepath layout="Polyline">
+           <startpoint startx="312" starty="146"/>
+           <endpoint endx="270" endy="146"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" linecolor="#ff0000" indexa="1" usesdiagramfillcolor="109" widgetbid="vEJcdkcSUUjY" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="108" totalcounta="2" totalcountb="2" roleAdoc="" widgetaid="eTzjaSwudwNj" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="513">
+          <linepath layout="Polyline">
+           <startpoint startx="320" starty="282"/>
+           <endpoint endx="261" endy="282"/>
           </linepath>
          </assocwidget>
         </associations>
@@ -353,7 +395,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="L4LyfjYfmJa4" uniqueid="DwE6ETKBQXWV" documentation=""/>
+  <docsettings viewid="6LyKUai8xh3L" uniqueid="eTzjaSwudwNj" documentation=""/>
   <listview>
    <listitem open="1" type="800" id="Views">
     <listitem open="1" type="821" id="Component View">
@@ -419,6 +461,7 @@
      <listitem open="1" type="813" id="t6n5wyFVFLyI"/>
      <listitem open="1" type="813" id="AlphgbCXQaAH"/>
      <listitem open="1" type="813" id="WgMA7nuHYjyC"/>
+     <listitem open="0" type="810" id="6LyKUai8xh3L" label="Preparing for downtime, sequence diagram"/>
      <listitem open="1" type="813" id="Ma82NIQvQRID"/>
      <listitem open="0" type="807" id="L4LyfjYfmJa4" label="Separation between core and cli"/>
      <listitem open="1" type="831" id="R3mptdyUyMiT">
