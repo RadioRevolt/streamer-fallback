@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI verified="false" xmi.version="1.2" timestamp="2016-12-23T20:34:45" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
+<XMI verified="false" xmi.version="1.2" timestamp="2016-12-23T21:20:30" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
@@ -57,7 +57,7 @@
        <UML:Namespace.ownedElement/>
        <XMI.extension xmi.extender="umbrello">
         <diagrams>
-         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="0" showpackage="1" showpubliconly="0" showstereotype="1" name="core class diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="0" canvaswidth="0" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="qDSbyc4J9uMJ" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
+         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="core class diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="0" canvaswidth="0" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="qDSbyc4J9uMJ" documentation="" showscope="1" snapgrid="0" showatts="1" type="1">
           <widgets/>
           <messages/>
           <associations/>
@@ -111,10 +111,10 @@
        </UML:Namespace.ownedElement>
        <XMI.extension xmi.extender="umbrello">
         <diagrams>
-         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="cli class diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="405" canvaswidth="1065" localid="-1" snapcsgrid="0" showgrid="1" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="PwD1fB0rcefy" documentation="Class diagram detailing the classes involved in the streamer-fallback-cli program." showscope="1" snapgrid="1" showatts="1" type="1">
+         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="cli class diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="441" canvaswidth="1065" localid="-1" snapcsgrid="0" showgrid="1" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="PwD1fB0rcefy" documentation="Class diagram detailing the classes involved in the streamer-fallback-cli program." showscope="1" snapgrid="1" showatts="1" type="1">
           <widgets>
-           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-500" showattsigs="601" showstereotype="1" y="-175" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="vTZX5CUtNuVK" width="379" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="2PGY67bU2mVh" showscope="1" height="180" showopsigs="601"/>
-           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="125" showattsigs="601" showstereotype="1" y="-175" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="IZvKMR0FsXny" width="340" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="WXddRywTNB0R" showscope="1" height="75" showopsigs="601"/>
+           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-500" showattsigs="601" showstereotype="1" y="-175" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="vTZX5CUtNuVK" width="379" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="2PGY67bU2mVh" showscope="1" height="216" showopsigs="601"/>
+           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="125" showattsigs="601" showstereotype="1" y="-175" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="IZvKMR0FsXny" width="340" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="WXddRywTNB0R" showscope="1" height="90" showopsigs="601"/>
            <enumwidget width="175" showstereotype="1" x="-350" usesdiagramusefillcolor="0" y="-400" usesdiagramfillcolor="0" isinstance="0" localid="rkJsvhQjy5M1" fillcolor="#ffff00" height="90" linecolor="#ff0000" xmi.id="R3mptdyUyMiT" showpackage="1" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
            <enumwidget width="201" showstereotype="1" x="-600" usesdiagramusefillcolor="0" y="-400" usesdiagramfillcolor="0" isinstance="0" localid="2x4cB3rHAhS8" fillcolor="#ffff00" height="90" linecolor="#ff0000" xmi.id="ioOY0wIqWwRH" showpackage="1" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0"/>
           </widgets>
@@ -140,6 +140,57 @@
              <endpoint endx="-262.5" endy="-310"/>
             </linepath>
             <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-375" showstereotype="1" y="-300" text="current_situation" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="epmjgKaKcfyr" pretext="+" role="710" width="127" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="8o723hx9qP14" height="22"/>
+           </assocwidget>
+          </associations>
+         </diagram>
+         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="cli sequence diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="524" canvaswidth="967" localid="-1" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" autoincrementsequence="1" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="itYHaTSUSAoT" documentation="" showscope="1" snapgrid="0" showatts="1" type="3">
+          <widgets>
+           <objectwidget linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="-125" decon="0" showstereotype="1" y="80" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="bvz3Sh0TXS3P" width="74" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="WXddRywTNB0R" height="28" drawasactor="0"/>
+           <objectwidget linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="1" x="344" decon="0" showstereotype="1" y="80" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="t9hiHqDxhjEH" width="173" isinstance="0" multipleinstance="0" usefillcolor="1" fillcolor="none" xmi.id="2PGY67bU2mVh" height="28" drawasactor="0"/>
+           <notewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="533" showstereotype="1" y="240" text="There is nothing wrong with committing multiple times, except the fact that each commit will restart LiquidSoap." font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="kSstxLihhS4l" width="309" isinstance="0" noteType="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="WWBz2HxCV8bo" height="65"/>
+           <notewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="527" showstereotype="1" y="372" text="Changing the attributes and running the prepare operation are not dependent on each other; one can be done without the other and their order is not important." font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="y8yws16cTzTQ" width="311" isinstance="0" noteType="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="KB5zbAi7gt6g" height="84"/>
+          </widgets>
+          <messages>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="t9hiHqDxhjEH" textid="KFmjIDY1eqHT" operation="init" linewidth="0" seqnum="1" textcolor="none" usesdiagramusefillcolor="1" x="-88" showstereotype="1" y="133" widgetaid="bvz3Sh0TXS3P" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="BfjdpV6RP3Sp" width="526" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="kRIIrMhkTMQj" height="20" sequencemessagetype="1000">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="0" showstereotype="1" y="111" text="init" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="AdgrNt7YYqBL" pretext="" role="704" width="44" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="KFmjIDY1eqHT" height="22"/>
+           </messagewidget>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="t9hiHqDxhjEH" textid="ajlpj4ObUW0k" operation="set current_status = 3" linewidth="0" seqnum="2" textcolor="none" usesdiagramusefillcolor="1" x="-88" showstereotype="1" y="180" widgetaid="bvz3Sh0TXS3P" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="AyDcJdLTE1Lb" width="526" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="sS7QGGkaVUHm" height="20" sequencemessagetype="1000">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="0" showstereotype="1" y="158" text="set current_status = 3" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="hplJe2mmyxOH" pretext="" role="704" width="167" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="ajlpj4ObUW0k" height="22"/>
+           </messagewidget>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="t9hiHqDxhjEH" textid="s4xGn7IY34Hw" operation="set nightmusic_show_name = 'Night music from Example Radio'" linewidth="0" seqnum="3" textcolor="none" usesdiagramusefillcolor="1" x="-88" showstereotype="1" y="230" widgetaid="bvz3Sh0TXS3P" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="kiJGCa0uQlB2" width="526" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="lwojtD1SukFd" height="20" sequencemessagetype="1000">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-21" showstereotype="1" y="208" text="set nightmusic_show_name = 'Night music from Example Radio'" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="odDI7B0qtH45" pretext="" role="704" width="433" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="s4xGn7IY34Hw" height="22"/>
+           </messagewidget>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="t9hiHqDxhjEH" textid="6wmHunZ4oi64" operation="UTRKrSMahDzT" linewidth="0" seqnum="4" textcolor="none" usesdiagramusefillcolor="1" x="-88" showstereotype="1" y="281" widgetaid="bvz3Sh0TXS3P" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="HGMCybnmD02I" width="526" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="UTRKrSMahDzT" height="20" sequencemessagetype="1000">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="0" showstereotype="1" y="259" text="commit()" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="AeXDjn8y1U80" pretext="" role="704" width="83" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="6wmHunZ4oi64" height="22"/>
+           </messagewidget>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="t9hiHqDxhjEH" textid="brorTOms8hKK" operation="prepare(24.12.2016, 14)" linewidth="0" seqnum="5" textcolor="none" usesdiagramusefillcolor="1" x="-88" showstereotype="1" y="372" widgetaid="bvz3Sh0TXS3P" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="sCD7Gb6QGecx" width="526" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="RkvSE4QIyDZs" height="160" sequencemessagetype="1000">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="0" showstereotype="1" y="350" text="prepare(24.12.2016, 14)" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="y9ukpzof91kP" pretext="" role="704" width="183" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="brorTOms8hKK" height="22"/>
+           </messagewidget>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="t9hiHqDxhjEH" textid="GGSYh2c6QKfm" operation="nGfj1QAd32qz" linewidth="0" seqnum="6" textcolor="none" usesdiagramusefillcolor="1" x="-87" showstereotype="1" y="408" widgetaid="bvz3Sh0TXS3P" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="lldhwAasHSc4" width="516" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="nGfj1QAd32qz" height="8" sequencemessagetype="1001">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="0" showstereotype="1" y="386" text="get_progress() : int" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="6aeCHxX1g8ia" pretext="" role="704" width="148" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="GGSYh2c6QKfm" height="22"/>
+           </messagewidget>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="bvz3Sh0TXS3P" textid="Ye1eAfzanJh2" operation="'30'" linewidth="0" seqnum="7" textcolor="none" usesdiagramusefillcolor="1" x="-87" showstereotype="1" y="436" widgetaid="t9hiHqDxhjEH" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="ncj6KXrR5VdL" width="516" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="S8M6G2gXH83w" height="8" sequencemessagetype="1001">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="228" showstereotype="1" y="414" text="'30'" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="8d2XyiJjI3pc" pretext="" role="704" width="46" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="Ye1eAfzanJh2" height="22"/>
+           </messagewidget>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="t9hiHqDxhjEH" textid="aD8miFttekM6" operation="nGfj1QAd32qz" linewidth="0" seqnum="8" textcolor="none" usesdiagramusefillcolor="1" x="-87" showstereotype="1" y="468" widgetaid="bvz3Sh0TXS3P" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="JNXYUaUcDX79" width="516" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="nGfj1QAd32qz" height="8" sequencemessagetype="1001">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="0" showstereotype="1" y="446" text="get_progress() : int" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="kZ3VsiVA30iX" pretext="" role="704" width="148" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="aD8miFttekM6" height="22"/>
+           </messagewidget>
+           <messagewidget linecolor="#ff0000" usesdiagramfillcolor="1" widgetbid="bvz3Sh0TXS3P" textid="CDARLqWB0m3A" operation="'70'" linewidth="0" seqnum="9" textcolor="none" usesdiagramusefillcolor="1" x="-87" showstereotype="1" y="497" widgetaid="t9hiHqDxhjEH" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="OP5gUf7CF8g7" width="516" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="qBHtAyPiBXUr" height="8" sequencemessagetype="1001">
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="229" showstereotype="1" y="475" text="'70'" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="kMkP46TSVW6y" pretext="" role="704" width="46" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="CDARLqWB0m3A" height="22"/>
+           </messagewidget>
+          </messages>
+          <associations>
+           <assocwidget roleBdoc="" linecolor="#ff0000" indexa="1" usesdiagramfillcolor="255" widgetbid="UTRKrSMahDzT" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="215" totalcounta="2" totalcountb="2" roleAdoc="" widgetaid="WWBz2HxCV8bo" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="513">
+            <linepath layout="Polyline">
+             <startpoint startx="533" starty="291"/>
+             <endpoint endx="438" endy="291"/>
+            </linepath>
+           </assocwidget>
+           <assocwidget roleBdoc="" linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="RkvSE4QIyDZs" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="64" totalcounta="2" totalcountb="2" roleAdoc="" widgetaid="KB5zbAi7gt6g" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="513">
+            <linepath layout="Polyline">
+             <startpoint startx="527" starty="452"/>
+             <endpoint endx="438" endy="452"/>
+            </linepath>
            </assocwidget>
           </associations>
          </diagram>
@@ -505,7 +556,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="PwD1fB0rcefy" uniqueid="3sRcsT6Hp89X" documentation=""/>
+  <docsettings viewid="itYHaTSUSAoT" uniqueid="9BiA3K6r3Pki" documentation=""/>
   <listview>
    <listitem open="1" type="800" id="Views">
     <listitem open="1" type="821" id="Component View">
@@ -525,6 +576,7 @@
     <listitem open="1" type="801" id="Logical View">
      <listitem open="1" type="803" id="x5KBOp4yb0b4">
       <listitem open="0" type="807" id="PwD1fB0rcefy" label="cli class diagram"/>
+      <listitem open="0" type="810" id="itYHaTSUSAoT" label="cli sequence diagram"/>
       <listitem open="0" type="813" id="WXddRywTNB0R">
        <listitem open="0" type="815" id="yDiJOilfGgza"/>
        <listitem open="0" type="815" id="5xpyUcuCrjHy"/>
@@ -545,10 +597,10 @@
        <listitem open="0" type="815" id="cftEw0jioaqt"/>
       </listitem>
      </listitem>
-     <listitem open="1" type="803" id="0Fa8YrMmUD1i">
+     <listitem open="0" type="803" id="0Fa8YrMmUD1i">
       <listitem open="0" type="807" id="qDSbyc4J9uMJ" label="core class diagram"/>
      </listitem>
-     <listitem open="1" type="830" id="Datatypes">
+     <listitem open="0" type="830" id="Datatypes">
       <listitem open="1" type="829" id="Y6HyOuWJFEuq"/>
       <listitem open="1" type="829" id="kagvPyRWnTT2"/>
       <listitem open="1" type="829" id="EeXPbFaH2OfY"/>
@@ -577,7 +629,7 @@
       <listitem open="1" type="829" id="UIEnj7Pkp1uw"/>
       <listitem open="1" type="829" id="2jyRkmAtlS7k"/>
      </listitem>
-     <listitem open="1" type="803" id="ZFIAJN8HdhP9">
+     <listitem open="0" type="803" id="ZFIAJN8HdhP9">
       <listitem open="0" type="813" id="RDqjQhilpCYk">
        <listitem open="0" type="815" id="wGxA6ekDhFhD"/>
       </listitem>
