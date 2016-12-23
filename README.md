@@ -13,7 +13,7 @@ Programvare for å styre hva som går på streamen når direktestreamen fra Luca
 
 ## Hvordan henger ting sammen?
 
-Sett inn diagram her
+![Diagram som viser hvor streamer-fallback hører hen i det store bildet](uml/High level component diagram.png)
 
 IceCast2 konfigueres av vi som setter den opp, og kjører etter det uten endringer i konfigurasjonen.
 
