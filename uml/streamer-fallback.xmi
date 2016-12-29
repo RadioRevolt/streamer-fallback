@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI verified="false" xmi.version="1.2" timestamp="2016-12-29T21:47:32" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
+<XMI verified="false" xmi.version="1.2" timestamp="2016-12-29T23:17:54" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
@@ -45,6 +45,9 @@
         <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="zxDL7bqSEBeN" name="set"/>
         <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="apXpa374VWMK" name="datetime.datetime"/>
         <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="XzPDXXBUa11U" name="datetime.date"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="C4L3K1XYynvz" name="datetime.time"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="SpqM00OC2iDN" name="file object"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="shJ05u5kbsNL" name="datetime.timedelta"/>
        </UML:Namespace.ownedElement>
       </UML:Package>
       <UML:Association visibility="public" isSpecification="false" namespace="Logical View" xmi.id="1Gg4YDNUSIdY" name="">
@@ -88,6 +91,42 @@
         <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="BDXXkz6Z8hj4" comment="Provides access to downloaded as well as not-downloaded schedules and handles downloading and deletion of local schedules." name="Scheduler">
          <UML:Classifier.feature>
           <UML:Attribute visibility="private" isSpecification="false" xmi.id="wNx3lXWr6IR7" type="p9dCyg3FEJB1" name="app"/>
+          <UML:Attribute visibility="protected" isSpecification="false" xmi.id="d4tJ93sJrIiT" type="NeLD9UleIzOR" comment="Dictionary containing the schedule. Key is datetime.date, value is a dictionary with key being datetime.time and value being an instance of Show. Lazy loaded from local schedule files." name="schedules"/>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8Y53xGvAsGGC" comment="Retrieve the schedule for the given day, if it has been downloaded locally." name="get">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter kind="return" xmi.id="gfsWv7goDnat" type="UqGk9zXh5oeU"/>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="v69lgRcyeVki" type="XzPDXXBUa11U" value="" comment="Which day to retrieve the schedule for." name="day"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="oTvraHKipPkk" comment="Download the schedule for the given day.&#xa;&#xa;Any existing local copies are overwritten by the upstream schedule, letting you update local copies using this method." name="download">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="CCsrfaZT2SKc" type="XzPDXXBUa11U" value="" comment="The day to download the schedule for." name="day"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+          <UML:Operation visibility="protected" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="jeJW23Egi7Ab" comment="Remove the local copy of the schedule for the given day." name="remove">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="CqPPexGo96fo" type="XzPDXXBUa11U" value="" comment="The day to remove the local copy of the schedule for." name="day"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+          <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="hCGheYJLBapD" comment="Remove any local schedules that are no longer needed.&#xa;&#xa;In practice, this means local copies of schedules for days in the past." name="remove_unnecessary"/>
+          <UML:Operation visibility="protected" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="FwIN3v9i8PPk" comment="Transform the contents of a file into a dict with datetime.time as key and an instance of Show as value." name="parse">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter kind="return" xmi.id="yg49HtKsvBC2" type="NeLD9UleIzOR"/>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="HZc087vbulvu" type="SpqM00OC2iDN" value="" comment="The file object which contains JSON in a format expected by this application. The JSON is a list of dictionaries, in which each dictionary has a field for starttime (datetime), endtime (datetime) and title (string). Additional fields may exist." name="fd"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+          <UML:Operation visibility="protected" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="DH83vTCVxAxE" comment="Download details on the specific show." name="download_show">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="dhLlbgWzjmcp" type="XzPDXXBUa11U" value="" comment="Day in which the given show starts." name="day"/>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="UTmnKEVYTbbO" type="HJWkeOkEp1og" value="" comment="The ID of the show to fetch details for." name="show_id"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
+          <UML:Operation visibility="protected" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="4mr0wpCZUVI5" comment="Update an instance of Show so it contains the details contained in the given file object." name="parse_show">
+           <UML:BehavioralFeature.parameter>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="9o2tZfg36TpQ" type="lJ4mzI9h02KU" value="" comment="The show to fill in details of." name="show"/>
+            <UML:Parameter visibility="private" isSpecification="false" xmi.id="fKw8wWUyIJwC" type="SpqM00OC2iDN" value="" comment="File object containing JSON representing details for the given show.&#xa;&#xa;The root element is a dictionary, containing the list elements and the dictionary metadata. Each element in elements is a dictionary with planned_stop, planned_start, title, media_type and class. Metadata consists of endtime, id, starttime and title. Elements not mentioned can still be present." name="fd"/>
+           </UML:BehavioralFeature.parameter>
+          </UML:Operation>
          </UML:Classifier.feature>
         </UML:Class>
         <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="HYFyp4JNvDlF" comment="Settings for streamer-fallback" name="Settings">
@@ -98,15 +137,16 @@
        </UML:Namespace.ownedElement>
        <XMI.extension xmi.extender="umbrello">
         <diagrams>
-         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="core class diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="645" canvaswidth="978" localid="-1" snapcsgrid="0" showgrid="1" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="93" xmi.id="qDSbyc4J9uMJ" documentation="" showscope="1" snapgrid="1" showatts="1" type="1">
+         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="core class diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="887" canvaswidth="1150" localid="-1" snapcsgrid="0" showgrid="1" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="93" xmi.id="qDSbyc4J9uMJ" documentation="" showscope="1" snapgrid="1" showatts="1" type="1">
           <widgets>
            <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-300" showattsigs="601" showstereotype="1" y="-500" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="WuGpZREyNXSb" width="124" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="HYFyp4JNvDlF" showscope="1" height="37" showopsigs="601"/>
            <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="0" showattsigs="601" showstereotype="1" y="-775" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="NUPHfAWC4k1b" width="311" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="p9dCyg3FEJB1" showscope="1" height="135" showopsigs="601"/>
-           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="100" showattsigs="601" showstereotype="1" y="-450" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="NnHa6QbRu0iZ" width="124" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="BDXXkz6Z8hj4" showscope="1" height="37" showopsigs="601"/>
+           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="0" showattsigs="601" showstereotype="1" y="-450" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="NnHa6QbRu0iZ" width="377" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="BDXXkz6Z8hj4" showscope="1" height="150" showopsigs="601"/>
            <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="400" showattsigs="601" showstereotype="1" y="-550" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="FhDLPvPkigKo" width="180" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="8ClAwkl6vIde" showscope="1" height="37" showopsigs="601"/>
            <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-375" showattsigs="601" showstereotype="1" y="-975" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="yv9tBkXRRjmo" width="229" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="6uFyuwW18FB3" showscope="1" height="37" showopsigs="601"/>
            <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="50" showattsigs="601" showstereotype="1" y="-1050" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="FLfMZqPXjWOv" width="129" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="cAZKot6tnJpg" showscope="1" height="37" showopsigs="601"/>
            <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="450" showattsigs="601" showstereotype="1" y="-1025" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="EZCKgKx7qsUR" width="153" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="g0y0xH2xpRDB" showscope="1" height="37" showopsigs="601"/>
+           <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="175" showattsigs="601" showstereotype="1" y="-275" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="oxicCirSGRSM" width="218" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="lJ4mzI9h02KU" showscope="1" height="112" showopsigs="601"/>
           </widgets>
           <messages/>
           <associations>
@@ -460,6 +500,16 @@
         </diagrams>
        </XMI.extension>
       </UML:Package>
+      <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="lJ4mzI9h02KU" comment="Data class representing one broadcast of a program." name="Show">
+       <UML:Classifier.feature>
+        <UML:Attribute visibility="public" isSpecification="false" xmi.id="ZLvR7qMq8Oc7" type="apXpa374VWMK" comment="When this show starts" name="start"/>
+        <UML:Attribute visibility="public" isSpecification="false" xmi.id="gjmfj79X2p8C" type="apXpa374VWMK" comment="When this show ends." name="end"/>
+        <UML:Attribute visibility="public" isSpecification="false" xmi.id="qeBGfWjVD1VH" type="shJ05u5kbsNL" comment="The duration of the show." name="duration"/>
+        <UML:Attribute visibility="public" isSpecification="false" xmi.id="vb1URMpOseNB" type="HJWkeOkEp1og" comment="This show's title. Usually equals the program's name." name="title"/>
+        <UML:Attribute visibility="public" isSpecification="false" xmi.id="aUxUIVk97tNl" type="kagvPyRWnTT2" comment="True if this is a rerun of an earlier show, false if not (assuming live shows exist).&#xa;&#xa;The heuristic of deciding whether a show is a broadcast or not, considers whether the title ends with &quot;(R)&quot; or the existence of elements in the rerunner." name="is_rerun"/>
+        <UML:Attribute visibility="public" isSpecification="false" xmi.id="Q5Gd6kszJrTk" type="UqGk9zXh5oeU" comment="Elements that are to be played by the rerunner as a part of this show. Usually, this will be one recording of an earlier show.&#xa;&#xa;The list consists of Elements." name="elements"/>
+       </UML:Classifier.feature>
+      </UML:Class>
      </UML:Namespace.ownedElement>
     </UML:Model>
     <UML:Model visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Use Case View" name="Use Case View">
@@ -659,7 +709,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="qDSbyc4J9uMJ" uniqueid="KFtm5LjD49MV" documentation=""/>
+  <docsettings viewid="qDSbyc4J9uMJ" uniqueid="fKw8wWUyIJwC" documentation=""/>
   <listview>
    <listitem open="1" type="800" id="Views">
     <listitem open="1" type="821" id="Component View">
@@ -677,7 +727,7 @@
     <listitem open="1" type="827" id="Deployment View"/>
     <listitem open="1" type="836" id="Entity Relationship Model"/>
     <listitem open="1" type="801" id="Logical View">
-     <listitem open="0" type="803" id="x5KBOp4yb0b4">
+     <listitem open="1" type="803" id="x5KBOp4yb0b4">
       <listitem open="0" type="807" id="PwD1fB0rcefy" label="cli class diagram"/>
       <listitem open="0" type="810" id="itYHaTSUSAoT" label="cli sequence diagram"/>
       <listitem open="0" type="813" id="WXddRywTNB0R">
@@ -727,21 +777,32 @@
       <listitem open="0" type="813" id="g0y0xH2xpRDB">
        <listitem open="0" type="814" id="PvEuBWykOgIj"/>
       </listitem>
-      <listitem open="0" type="813" id="BDXXkz6Z8hj4">
+      <listitem open="1" type="813" id="BDXXkz6Z8hj4">
        <listitem open="0" type="814" id="wNx3lXWr6IR7"/>
+       <listitem open="0" type="815" id="DH83vTCVxAxE"/>
+       <listitem open="0" type="815" id="oTvraHKipPkk"/>
+       <listitem open="0" type="815" id="8Y53xGvAsGGC"/>
+       <listitem open="0" type="815" id="4mr0wpCZUVI5"/>
+       <listitem open="0" type="815" id="FwIN3v9i8PPk"/>
+       <listitem open="0" type="815" id="hCGheYJLBapD"/>
+       <listitem open="0" type="815" id="jeJW23Egi7Ab"/>
+       <listitem open="0" type="814" id="d4tJ93sJrIiT"/>
       </listitem>
       <listitem open="0" type="813" id="HYFyp4JNvDlF">
        <listitem open="0" type="814" id="dZTZjijSVIH4"/>
       </listitem>
      </listitem>
-     <listitem open="0" type="830" id="Datatypes">
+     <listitem open="1" type="830" id="Datatypes">
       <listitem open="1" type="829" id="Y6HyOuWJFEuq"/>
       <listitem open="1" type="829" id="kagvPyRWnTT2"/>
       <listitem open="1" type="829" id="EeXPbFaH2OfY"/>
       <listitem open="1" type="829" id="XzPDXXBUa11U"/>
       <listitem open="1" type="829" id="apXpa374VWMK"/>
+      <listitem open="1" type="829" id="C4L3K1XYynvz"/>
+      <listitem open="1" type="829" id="shJ05u5kbsNL"/>
       <listitem open="1" type="829" id="NeLD9UleIzOR"/>
       <listitem open="1" type="829" id="aSJcrx8GUOhM"/>
+      <listitem open="1" type="829" id="SpqM00OC2iDN"/>
       <listitem open="1" type="829" id="7p4zHoqTSLs2"/>
       <listitem open="1" type="829" id="RXITuOvJBpKW"/>
       <listitem open="1" type="829" id="UqGk9zXh5oeU"/>
@@ -805,6 +866,14 @@
       </listitem>
       <listitem open="0" type="813" id="dEKFeH5WLsbH"/>
       <listitem open="0" type="813" id="GEaXtZSNGmYN"/>
+     </listitem>
+     <listitem open="1" type="813" id="lJ4mzI9h02KU">
+      <listitem open="0" type="814" id="qeBGfWjVD1VH"/>
+      <listitem open="0" type="814" id="Q5Gd6kszJrTk"/>
+      <listitem open="0" type="814" id="gjmfj79X2p8C"/>
+      <listitem open="0" type="814" id="aUxUIVk97tNl"/>
+      <listitem open="0" type="814" id="ZLvR7qMq8Oc7"/>
+      <listitem open="0" type="814" id="vb1URMpOseNB"/>
      </listitem>
     </listitem>
     <listitem open="1" type="802" id="Use Case View">
