@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI verified="false" xmi.version="1.2" timestamp="2016-12-23T22:11:01" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
+<XMI verified="false" xmi.version="1.2" timestamp="2016-12-29T21:47:32" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
@@ -65,32 +65,32 @@
           <UML:Attribute visibility="public" isSpecification="false" xmi.id="yoRQBCqoyCFA" type="g0y0xH2xpRDB" comment="Instance of RerunSelector, that lets you figure out which rerun to use for a given show in the schedule." name="rerun_selector"/>
          </UML:Classifier.feature>
         </UML:Class>
-        <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="cAZKot6tnJpg" name="LiquidSoap">
+        <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="cAZKot6tnJpg" comment="Representation of the LiquidSoap service (not a specific process). Is able to restart LiquidSoap, in order to make LiquidSoap use a new configuration." name="LiquidSoap">
          <UML:Classifier.feature>
           <UML:Attribute visibility="private" isSpecification="false" xmi.id="6bmc1VIe4jBo" type="p9dCyg3FEJB1" name="app"/>
          </UML:Classifier.feature>
         </UML:Class>
-        <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8ClAwkl6vIde" name="RerunDownloader">
+        <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="8ClAwkl6vIde" comment="Class that ensures that the necessary reruns are available locally, and downloads the reruns that are needed but not present, and deletes the reruns that are not needed but present locally." name="RerunDownloader">
          <UML:Classifier.feature>
           <UML:Attribute visibility="private" isSpecification="false" xmi.id="nimqRxcrqql0" type="p9dCyg3FEJB1" name="app"/>
          </UML:Classifier.feature>
         </UML:Class>
-        <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="6uFyuwW18FB3" name="LiquidSoapConfiguration">
+        <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="6uFyuwW18FB3" comment="Representation of a LiquidSoapConfiguration (that is, a LiquidSoap script), which also handles saving that configuration to a file." name="LiquidSoapConfiguration">
          <UML:Classifier.feature>
           <UML:Attribute visibility="private" isSpecification="false" xmi.id="asjYNG5D9PaT" type="p9dCyg3FEJB1" name="app"/>
          </UML:Classifier.feature>
         </UML:Class>
-        <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="g0y0xH2xpRDB" name="RerunSelector">
+        <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="g0y0xH2xpRDB" comment="Mirrors the AutoReplace task in BUS. Given a schedule and the database of reruns, it assigns a rerun for each show in the schedule." name="RerunSelector">
          <UML:Classifier.feature>
           <UML:Attribute visibility="private" isSpecification="false" xmi.id="PvEuBWykOgIj" type="p9dCyg3FEJB1" name="app"/>
          </UML:Classifier.feature>
         </UML:Class>
-        <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="BDXXkz6Z8hj4" name="Scheduler">
+        <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="BDXXkz6Z8hj4" comment="Provides access to downloaded as well as not-downloaded schedules and handles downloading and deletion of local schedules." name="Scheduler">
          <UML:Classifier.feature>
           <UML:Attribute visibility="private" isSpecification="false" xmi.id="wNx3lXWr6IR7" type="p9dCyg3FEJB1" name="app"/>
          </UML:Classifier.feature>
         </UML:Class>
-        <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="HYFyp4JNvDlF" name="Settings">
+        <UML:Class visibility="public" isSpecification="false" namespace="0Fa8YrMmUD1i" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="HYFyp4JNvDlF" comment="Settings for streamer-fallback" name="Settings">
          <UML:Classifier.feature>
           <UML:Attribute visibility="private" isSpecification="false" xmi.id="dZTZjijSVIH4" type="p9dCyg3FEJB1" name="app"/>
          </UML:Classifier.feature>
@@ -98,7 +98,7 @@
        </UML:Namespace.ownedElement>
        <XMI.extension xmi.extender="umbrello">
         <diagrams>
-         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="core class diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="695" canvaswidth="978" localid="-1" snapcsgrid="0" showgrid="1" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="93" xmi.id="qDSbyc4J9uMJ" documentation="" showscope="1" snapgrid="1" showatts="1" type="1">
+         <diagram showopsig="1" linecolor="#ff0000" snapx="25" showattribassocs="1" snapy="25" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="core class diagram" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="645" canvaswidth="978" localid="-1" snapcsgrid="0" showgrid="1" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="93" xmi.id="qDSbyc4J9uMJ" documentation="" showscope="1" snapgrid="1" showatts="1" type="1">
           <widgets>
            <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="-300" showattsigs="601" showstereotype="1" y="-500" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="WuGpZREyNXSb" width="124" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="HYFyp4JNvDlF" showscope="1" height="37" showopsigs="601"/>
            <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" showoperations="1" textcolor="#000000" usesdiagramusefillcolor="0" showpubliconly="0" showpackage="1" x="0" showattsigs="601" showstereotype="1" y="-775" showattributes="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" localid="NUPHfAWC4k1b" width="311" isinstance="0" usefillcolor="1" fillcolor="#ffff00" xmi.id="p9dCyg3FEJB1" showscope="1" height="135" showopsigs="601"/>
@@ -115,42 +115,42 @@
              <startpoint startx="0" starty="-640"/>
              <endpoint endx="-176" endy="-500"/>
             </linepath>
-            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-175" showstereotype="1" y="-506" text="settings" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="udsguhKA1zUa" pretext="+" role="710" width="69" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="nr5VNTQbNiEy" height="22"/>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-100" showstereotype="1" y="-550" text="settings" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="udsguhKA1zUa" pretext="+" role="710" width="69" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="nr5VNTQbNiEy" height="22"/>
            </assocwidget>
            <assocwidget linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="BDXXkz6Z8hj4" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="p9dCyg3FEJB1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" xmi.id="mgBzhiyaJqGE" changeabilityB="900" type="510">
             <linepath layout="Polyline">
              <startpoint startx="100" starty="-640"/>
              <endpoint endx="100" endy="-450"/>
             </linepath>
-            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="53" showstereotype="1" y="-484" text="scheduler" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="XYMYVq6IhBn2" pretext="+" role="710" width="80" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="fBd0tpzeWAdD" height="22"/>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="100" showstereotype="1" y="-500" text="scheduler" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="XYMYVq6IhBn2" pretext="+" role="710" width="80" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="fBd0tpzeWAdD" height="22"/>
            </assocwidget>
            <assocwidget linecolor="#ff0000" indexa="1" usesdiagramfillcolor="1" widgetbid="cAZKot6tnJpg" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="p9dCyg3FEJB1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" xmi.id="rblARzOwXiV2" changeabilityB="900" type="510">
             <linepath layout="Polyline">
              <startpoint startx="171" starty="-775"/>
              <endpoint endx="171" endy="-1013"/>
             </linepath>
-            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="100" showstereotype="1" y="-1000" text="liquidsoap" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="YZJDl4FOGqO7" pretext="+" role="710" width="83" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="gLlAUMLLv7VK" height="22"/>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="100" showstereotype="1" y="-975" text="liquidsoap" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="YZJDl4FOGqO7" pretext="+" role="710" width="83" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="gLlAUMLLv7VK" height="22"/>
            </assocwidget>
            <assocwidget linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="6uFyuwW18FB3" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="p9dCyg3FEJB1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" xmi.id="6sHeake7JxK4" changeabilityB="900" type="510">
             <linepath layout="Polyline">
              <startpoint startx="0" starty="-775"/>
              <endpoint endx="-146" endy="-938"/>
             </linepath>
-            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-12" showstereotype="1" y="-884" text="liquidsoap_config" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="2YQGMnN087Ac" pretext="+" role="710" width="131" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="TWxNdRhjJwLr" height="22"/>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="-75" showstereotype="1" y="-875" text="liquidsoap_config" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="2YQGMnN087Ac" pretext="+" role="710" width="131" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="TWxNdRhjJwLr" height="22"/>
            </assocwidget>
            <assocwidget linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="8ClAwkl6vIde" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="p9dCyg3FEJB1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" xmi.id="JC9a8UQnUOlQ" changeabilityB="900" type="510">
             <linepath layout="Polyline">
              <startpoint startx="311" starty="-640"/>
              <endpoint endx="400" endy="-550"/>
             </linepath>
-            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="271" showstereotype="1" y="-581" text="rerun_downloader" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="dnNSEZcQ8mlm" pretext="+" role="710" width="136" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="6gtvYOKqYTOe" height="22"/>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="250" showstereotype="1" y="-575" text="rerun_downloader" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="dnNSEZcQ8mlm" pretext="+" role="710" width="136" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="6gtvYOKqYTOe" height="22"/>
            </assocwidget>
            <assocwidget linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="g0y0xH2xpRDB" indexb="1" linewidth="0" seqnum="" textcolor="none" usesdiagramusefillcolor="1" totalcounta="2" totalcountb="2" widgetaid="p9dCyg3FEJB1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" xmi.id="yoRQBCqoyCFA" changeabilityB="900" type="510">
             <linepath layout="Polyline">
              <startpoint startx="311" starty="-775"/>
              <endpoint endx="450" endy="-988"/>
             </linepath>
-            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="333" showstereotype="1" y="-977" text="rerun_selector" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="jpZrbKdf0UYW" pretext="+" role="710" width="112" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="stKOMj1KVSlg" height="22"/>
+            <floatingtext linecolor="#ff0000" usesdiagramfillcolor="1" linewidth="0" textcolor="none" usesdiagramusefillcolor="1" x="300" showstereotype="1" y="-950" text="rerun_selector" font="Cantarell,11,-1,5,50,0,0,0,0,0" localid="jpZrbKdf0UYW" pretext="+" role="710" width="112" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="stKOMj1KVSlg" height="22"/>
            </assocwidget>
           </associations>
          </diagram>
@@ -659,7 +659,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="qDSbyc4J9uMJ" uniqueid="5g4Y3rq5Z0E9" documentation=""/>
+  <docsettings viewid="qDSbyc4J9uMJ" uniqueid="KFtm5LjD49MV" documentation=""/>
   <listview>
    <listitem open="1" type="800" id="Views">
     <listitem open="1" type="821" id="Component View">

@@ -34,7 +34,7 @@ Hvis du gjør endringer i UML-diagrammene, MÅ du eksportere nye versjoner av di
 eksporterte diagrammer ikke matcher originalen.
 
 Det er [Umbrello](https://umbrello.kde.org/) som brukes som UML-diagram-verktøy. Ved eksport trenger du bare å velge «Export as images…» og
-eksportere alle diagrammer inn i `uml`-mappa.
+eksportere alle diagrammer inn i `uml`-mappa. Du skal bruke 150 som DPI og huke av «Use folders».
 
 ## Detaljerte krav
 
