@@ -36,6 +36,12 @@ eksporterte diagrammer ikke matcher originalen.
 Det er [Umbrello](https://umbrello.kde.org/) som brukes som UML-diagram-verktøy. Ved eksport trenger du bare å velge «Export as images…» og
 eksportere alle diagrammer inn i `uml`-mappa. Du skal bruke 150 som DPI og huke av «Use folders».
 
+På et tidspunkt ble dokumentasjonen i UML-diagremmene brukt til å generere kode og dokumentasjon i koden. Når det kommer
+til dokumentasjonen, er det koden som er den autoritative kilden. Når det kommer til struktur, så SKAL UML-diagrammene stemme
+overens med koden. Gjøres det endringer i funksjonssignaturene eller attributter, må derfor endringen også gjøres i diagrammene.
+Grunnen til dette er for å sikre at UML-diagrammene fortsatt har verdi, og kan brukes av nye utviklere som ønsker å bli
+kjent med prosjektet.
+
 ## Detaljerte krav
 
 ### CLI
