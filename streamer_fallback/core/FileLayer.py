@@ -1,5 +1,5 @@
 # coding=UTF-8
-from core.Settings import *
+from streamer_fallback.core.settings import Settings
 
 class FileLayer(object):
 

@@ -1,13 +1,13 @@
 # coding=UTF-8
-from core.Settings import *
-from core.Scheduler import *
-from core.LiquidSoap import *
-from core.LiquidSoapConfiguration import *
-from core.RerunDownloader import *
-from core.RerunSelector import *
-from core.AudioCatalogLayer import *
-from core.FileLayer import *
-from core.ScheduleLayer import *
+from streamer_fallback.core.settings import Settings
+from streamer_fallback.core.scheduler import Scheduler
+from streamer_fallback.core.liquid_soap import LiquidSoap
+from streamer_fallback.core.liquid_soap_configuration import LiquidSoapConfiguration
+from streamer_fallback.core.rerun_downloader import RerunDownloader
+from streamer_fallback.core.rerun_selector import RerunSelector
+from streamer_fallback.core.audio_catalog_layer import AudioCatalogLayer
+from streamer_fallback.core.file_layer import FileLayer
+from streamer_fallback.core.schedule_layer import ScheduleLayer
 
 class core_main(object):
 

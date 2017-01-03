@@ -1,5 +1,5 @@
 # coding=UTF-8
-from core.ShowElement import *
+from streamer_fallback.core.show_element import ShowElement
 
 class Show(object):
 

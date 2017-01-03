@@ -1,5 +1,5 @@
 # coding=UTF-8
-from core.FileLayer import *
+from streamer_fallback.core.file_layer import FileLayer
 
 class RerunDownloader(object):
 

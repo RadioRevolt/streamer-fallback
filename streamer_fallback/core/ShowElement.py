@@ -1,5 +1,5 @@
 # coding=UTF-8
-from core.RecordingType import *
+from streamer_fallback.core.recording_type import RecordingType
 
 class ShowElement(object):
 

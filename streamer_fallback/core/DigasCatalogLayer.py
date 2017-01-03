@@ -1,5 +1,5 @@
 # coding=UTF-8
-from core.AudioCatalogLayer import *
+from streamer_fallback.core.audio_catalog_layer import AudioCatalogLayer
 
 class DigasCatalogLayer (AudioCatalogLayer):
 

@@ -1,6 +1,6 @@
 # coding=UTF-8
-from core.Show import *
-from core.Settings import *
+from streamer_fallback.core.show import Show
+from streamer_fallback.core.settings import Settings
 
 class ScheduleLayer(object):
 

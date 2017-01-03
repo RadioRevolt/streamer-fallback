@@ -1,6 +1,6 @@
 # coding=UTF-8
-from overview.situation import *
-from overview.statuses import *
+from streamer_fallback.core.situation import Situation
+from streamer_fallback.core.status import Status
 
 class Settings(object):
 

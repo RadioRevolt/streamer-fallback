@@ -1,7 +1,7 @@
 # coding=UTF-8
-from core.Recording import *
-from core.ShowElement import *
-from core.Settings import *
+from streamer_fallback.core.recording import Recording
+from streamer_fallback.core.show_element import ShowElement
+from streamer_fallback.core.settings import Settings
 
 class AudioCatalogLayer(object):
 

@@ -1,8 +1,8 @@
 # coding=UTF-8
-from core.Recording import *
-from core.ShowElement import *
-from core.Show import *
-from core.AudioCatalogLayer import *
+from streamer_fallback.core.recording import Recording
+from streamer_fallback.core.show_element import ShowElement
+from streamer_fallback.core.show import Show
+from streamer_fallback.core.audio_catalog_layer import AudioCatalogLayer
 
 class RerunSelector(object):
 

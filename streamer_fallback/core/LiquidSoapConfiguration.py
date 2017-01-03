@@ -1,6 +1,6 @@
 # coding=UTF-8
-from overview.statuses import *
-from overview.situation import *
+from streamer_fallback.core.status import Status
+from streamer_fallback.core.situation import Situation
 
 class LiquidSoapConfiguration(object):
 
