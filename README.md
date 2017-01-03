@@ -28,7 +28,11 @@ så vil et nytt skript genereres daglig for å matche ny sendeplan per dag.
 
 ## Utvikling
 
+### Språk
+
 README skrives på norsk, brukergrensesnitt skrives på norsk, ellers skrives alt på engelsk, inkludert UML-diagrammene.
+
+### Eksportering av UML-diagrammer og endringer i dem
 
 Hvis du gjør endringer i UML-diagrammene, MÅ du eksportere nye versjoner av disse i samme commit. Det tillates ikke
 eksporterte diagrammer ikke matcher originalen.
@@ -36,11 +40,20 @@ eksporterte diagrammer ikke matcher originalen.
 Det er [Umbrello](https://umbrello.kde.org/) som brukes som UML-diagram-verktøy. Ved eksport trenger du bare å velge «Export as images…» og
 eksportere alle diagrammer inn i `uml`-mappa. Du skal bruke 150 som DPI og huke av «Use folders».
 
-På et tidspunkt ble dokumentasjonen i UML-diagremmene brukt til å generere kode og dokumentasjon i koden. Når det kommer
+### Sammenheng mellom UML og kode
+
+På et tidspunkt ble dokumentasjonen i UML-diagrammene brukt til å generere kode og dokumentasjon i koden. Når det kommer
 til dokumentasjonen, er det koden som er den autoritative kilden. Når det kommer til struktur, så SKAL UML-diagrammene stemme
 overens med koden. Gjøres det endringer i funksjonssignaturene eller attributter, må derfor endringen også gjøres i diagrammene.
 Grunnen til dette er for å sikre at UML-diagrammene fortsatt har verdi, og kan brukes av nye utviklere som ønsker å bli
 kjent med prosjektet.
+
+### Kodestil
+
+Kodestilen tar utgangspunkt i [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html), med unntak av at
+`@property` og `@navn_på_attributt.setter`-dekorasjonene er foretrukket når det kommer til enkle
+getter- og setter-metoder. Du trenger ikke pugge stilguiden utenatt, bare les gjennom den. Det står mye fornuftig der.
+Det verste som kan skje, er at noen kommenterer brudd på stilen, i den hensikt å gjøre deg oppmerksom på det.
 
 ## Detaljerte krav
 
