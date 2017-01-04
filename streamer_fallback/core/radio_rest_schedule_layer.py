@@ -2,13 +2,7 @@
 from streamer_fallback.core.schedule_layer import ScheduleLayer
 
 class RadioRESTScheduleLayer (ScheduleLayer):
-
     """
-     
-
-    :version:
-    :author:
+    Provides access to the schedule provided through Radio Revolt's REST API.
     """
-
-
 
