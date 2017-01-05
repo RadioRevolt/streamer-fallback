@@ -38,7 +38,7 @@ class AudioCatalogLayer(object):
         """
         pass
 
-    def __init__(self, settings: Settings):
+    def __init__(self, settings: Settings) -> None:
         """
         Initialize the AudioCatalogLayer.
 

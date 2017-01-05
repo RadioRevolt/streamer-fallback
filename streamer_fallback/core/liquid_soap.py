@@ -37,7 +37,7 @@ class LiquidSoap(object):
         """
         pass
 
-    def __init__(self, liquidsoap_service_name: str, liquidsoap_command: str):
+    def __init__(self, liquidsoap_service_name: str, liquidsoap_command: str) -> None:
         """
         Initialize this instance of the LiquidSoap class.
 
