@@ -1,5 +1,5 @@
 # coding=UTF-8
-from typing import FileIO
+from typing import TextIO
 from streamer_fallback.core.situation import Situation
 from streamer_fallback.core.status import Status
 
@@ -47,7 +47,7 @@ class Settings(object):
             be saved.
     """
 
-    def __init__(self, fd: FileIO=None) -> None:
+    def __init__(self, fd: TextIO=None) -> None:
         """
         Initialize settings either from default values, or from an existing
         settings file.
@@ -57,7 +57,7 @@ class Settings(object):
         """
         pass
 
-    def write(self, fd: FileIO) -> None:
+    def write(self, fd: TextIO) -> None:
         """
         Write the settings to the given file.
 

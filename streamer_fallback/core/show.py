@@ -31,7 +31,7 @@ class Show(object):
             duration: datetime.timedelta =None,
             title: str =None,
             is_rerun: bool =None,
-            elements: List[ShowElement] =None
+            elements: Sequence[ShowElement] =None
     ) -> None:
         """
         Initialize the Show, setting the provided attributes. All parameters are
